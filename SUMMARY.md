@@ -8,7 +8,7 @@
 * [Creating the MiGA Container](creating-the-container/README.md)
   * [Locally Using Docker Commands](creating-the-container/using-docker-commands.md)
   * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
-* [Starting & Stopping MiGA](starting-miga.md)
+* [Starting & Stopping MiGA](starting-miga/starting-miga.md)
 * [Add a Reference Database \(Optional\)](add-a-reference-database-optional/README.md)
   * [Add Reference Databases from the Command Line](add-a-reference-database-optional/add-reference-databases-from-the-command-line.md)
   * [Add Reference Databases using MiGA-Web](add-a-reference-database-optional/add-reference-databases-using-miga-web.md) 
