@@ -1,19 +1,31 @@
 # Table of contents
 
-* [MiGA-Docker](README.md)
-* [Installing Docker](installing-docker/README.md)
-  * [Installing Docker for Windows](installing-docker/installing-docker-for-windows.md)
-  * [Installing Docker for Mac OS](installing-docker/installing-docker-for-mac-os.md)
-  * [Installing Docker for Linux](installing-docker/installing-docker-for-linux.md)
-* [Creating the MiGA Container](creating-the-container/README.md)
-  * [Locally Using Docker Commands](creating-the-container/using-docker-commands.md)
-  * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
-* [Starting & Stopping MiGA](starting-miga/starting-miga.md)
+## MiGA Containers
+### MiGA Docker
+* [MiGA Containers](README.md)
+    * [MiGA Docker](installing-docker/README.md)
+    * [Installing Docker for Windows](installing-docker/installing-docker-for-windows.md)
+    * [Installing Docker for Mac OS](installing-docker/installing-docker-for-mac-os.md)
+    * [Installing Docker for Linux](installing-docker/installing-docker-for-linux.md)
+  * [Creating the MiGA Container](creating-the-container/README.md)
+    * [Locally Using Docker Commands](creating-the-container/using-docker-commands.md)
+    * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
+  * [Starting & Stopping MiGA Docker](starting-miga/starting-miga.md)
+
+### MiGA AWS  
+* [MiGA AWS](miga_aws.md)  
+  * [Create an AWS Account](aws/miga_aws_account.md)  
+  * [Create a Key Pair](aws/miga_aws_key_pair.md)  
+  * [Setup a MiGA Instance](aws/miga_aws_setup.md)
+
+## MiGA Projects Overview  
+* [MiGA Projects](miga-projects.md)  
+* [Get Example Data](get-data-files.md)  
+
+## Reference Databases
 * [Add a Reference Database \(Optional\)](add-a-reference-database-optional/README.md)
   * [Add Reference Databases from the Command Line](add-a-reference-database-optional/add-reference-databases-from-the-command-line.md)
   * [Add Reference Databases using MiGA-Web](add-a-reference-database-optional/add-reference-databases-using-miga-web.md) 
-* [MiGA Projects](miga-projects.md)
-* [Get Example Data](get-data-files.md)
 
 ## MiGA-Web Projects
 * [Create A Genome Project](miga-web-projects/create-a-genome-project.md)
