@@ -65,10 +65,21 @@ CLI projects created in the /root/miga-data directory can also be accessed via t
 
 ## Long Running Projects
 
-MiGA-Web projects will continue to run after you close your browser. As long as you do not stop the instance, you can log back in with your browser using the same IP address. CLI projects, however, will terminate when you close your terminal or your connection to the internet is interupted. This incovnience can be overcome by using ```tmux```. After logging in via your terminal, simply enter the command ```tmux```. A green band will appear at the bottom of your termina indicating you are in a ```tmux``` session. Enter commands to run your project and after it has started, enter Ctrl and b, release both keys and type d. This will take you out of the ```tmux``` session and you can close your temina, turn off your computer and go home. As long as ou do not stop the instance, you can resume the ```tmux``` session by logging back in from your terminal and entering:
+MiGA-Web projects will continue to run after you close your browser. As long as you do not stop the instance, you can log back in with your browser using the same IP address. CLI projects, however, will terminate when you close your terminal or your connection to the internet is interupted. This incovnience can be overcome by using ```tmux```. After logging in via your terminal, simply enter the command ```tmux```. A green band will appear at the bottom of your termina indicating you are in a ```tmux``` session. Enter commands to run your project and after it has started, enter Ctrl and b, release both keys and type d. This will take you out of the ```tmux``` session and you can close your temina, turn off your computer and go home. As long as you do not stop the instance, you can resume the ```tmux``` session by logging back in from your terminal and entering:
 
 ```
 sudo su # Because the project was created using su status
 tmux a
 ```
 
+## Accessing Results
+See the **Exploring Results** section for general ways to get results. Some results may be downloaded using the web interface, but in some cases *e.g.* downloading an archive of a project, you may wish to use an FTP client such as FileZilla.  However, the only directory that can be accessed via FileZilla is the user home directory /home/ubuntu. Therefore you first have to copy results for FTP download to that directory. Then, with the instance running, you can log in using FileZilla and download the files.  
+
+To configure FileZilla to access to an instance:  
+For protocol, select SFTP - SSH File Transfer Protocol.  
+For host, enter the IP address.  
+For Logon Type, select Key file.  
+For User, enter ubuntu.  
+For Key file, enter the path to and name of your key file. You may do this using the Browse button.  
+
+Yoiu may save this cofiguration as a new site, but remeber that you will have to edit the IP address each time you re-start the instance.
