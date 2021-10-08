@@ -1,5 +1,6 @@
 # Table of contents
 
+## MiGA Docker
 * [MiGA Docker](installing-docker/README.md)
   * [Installing Docker for Windows](installing-docker/installing-docker-for-windows.md)
   * [Installing Docker for Mac OS](installing-docker/installing-docker-for-mac-os.md)
@@ -9,12 +10,13 @@
     * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
   * [Starting & Stopping MiGA Docker](starting-miga/starting-miga.md)
 
+## MiGA AWS
 * [MiGA AWS](aws/miga_aws.md)  
   * [Create an AWS Account](aws/miga_aws_account.md)  
   * [Create a Key Pair](aws/miga_aws_key_pair.md)  
   * [Setup a MiGA Instance](aws/miga_aws_setup.md)
 
-## MiGA Projects Overview  
+## MiGA Projects
 * [MiGA Projects](miga-projects.md)  
 * [Get Example Data](get-data-files.md)  
 
