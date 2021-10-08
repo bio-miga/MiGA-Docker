@@ -9,8 +9,7 @@
     * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
   * [Starting & Stopping MiGA Docker](starting-miga/starting-miga.md)
 
-### MiGA AWS  
-* [MiGA AWS](miga_aws.md)  
+* [MiGA AWS](aws/miga_aws.md)  
   * [Create an AWS Account](aws/miga_aws_account.md)  
   * [Create a Key Pair](aws/miga_aws_key_pair.md)  
   * [Setup a MiGA Instance](aws/miga_aws_setup.md)
