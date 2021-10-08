@@ -109,5 +109,6 @@ cd miga-data
 ```
 If you create a MiGA job at this point, the job will be killed if you close the terminal. This can be avoided by first creating a ```tmux``` session and running the job in that session. In that case, you may exit the ```tmux``` session, close the terminal, and the job will continue running. See the **MiGA-CLI Project** section for details on how to do this.  
 
+## Stopping and Starting the MiGA Instance
 
- 
+To save your MiGA instance, go the the page displaying it and from the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions" menu choosing "Instance State" and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.
