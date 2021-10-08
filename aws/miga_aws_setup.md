@@ -84,23 +84,18 @@ After a few seconds the server should start.
 
 Open your browser and enter ```http://the _public_ip_address_you_wrote_down```. The MiGA-Web Welcome page will open and you may begin using MiGA-Web. If you close your browser, the instance will continue to run until you log back into your AWS account and stop it.   
 
-Alternatively, open a terminal. Assuming the following:  
+Alternatively, open your Mac, Ubuntu or git bash terminal. Assuming the following:  
 - .ssh is the path to your key file
-- MyKeyPir.pem is the name of your key file
+- MyKeyPair.pem is the name of your key file
 - 18.190.158.158 is the public IP address
  
 Enter:
 
 ```
-ssh -i .ssh/MyKeyFile.pem ubuntu@18.190.158.158
-```
-The Git Bash terminal is recommended for Windows users, in wich case the commandis as above. If you use Window Powershell instead, the command is similar:  
-
-```
-ssh -i ./.ssh/MyKeyFile.pem ubuntu@18.190.158.158
+ssh -i ~/.ssh/MyKeyFile.pem ubuntu@18.190.158.158
 ```
 
-Enter "yes" when prompted to log into your AWS instance. You will be in user ubuntu's home directrory. MiGA projects must be created in the ```/root/miga-data``` directory; to get there, enter:
+Enter "yes" when prompted to log into your AWS instance. You will be in user ubuntu's home directory. MiGA projects must be created in the ```/root/miga-data``` directory; to get there, enter:
 
 ```
 sudo su
@@ -109,6 +104,8 @@ cd miga-data
 ```
 If you create a MiGA job at this point, the job will be killed if you close the terminal. This can be avoided by first creating a ```tmux``` session and running the job in that session. In that case, you may exit the ```tmux``` session, close the terminal, and the job will continue running. See the **MiGA-CLI Project** section for details on how to do this.  
 
-## Stopping and Starting the MiGA Instance
+## Saving and Restarting the MiGA Instance
 
-To save your MiGA instance, go the the page displaying it and from the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions" menu choosing "Instance State" and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.
+To save your MiGA instance, go the the page displaying it and from the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions" menu choosing "Instance State" and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
+
+When you restart the MiGA instance, the server will not be running and so the instance will not be accessible via a browser. Also, any previous results will not be available until you remount the device they are on. See the next section **Using MiGA AWS** for how to address these problems.  
