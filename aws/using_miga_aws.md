@@ -20,9 +20,6 @@ sudo mount /dev/xvdb miga-data
 # Check that miga-data is available.
 lsblk
 
-# Copy the database files.
-cp -r /miga-web/db/* /root/miga-data/db/
-
 # Move to the miga-data directory.
 cd miga-data/
 
@@ -36,7 +33,7 @@ cd ../../miga-web
 export SECRET_KEY_BASE='bundle exec rake secret'  
 bundle exec rails server -e production -b 0.0.0.0 -p 80 Puma
 ```
-You can then access your MiGA instance by both browser (MiGA-Web) and command line interfaces, and previous projects should be available. You will, however need to create a new MiGA-Web account. For this reason, via the web interface you should always create public projects. Otherwise peviously created private projects will not be available via the web.  
+You can then access your MiGA instance by both browser (MiGA-Web) and command line interfaces, and previous projects should be available. 
 
 ## MiGA-Web Projects
 
