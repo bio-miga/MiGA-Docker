@@ -18,7 +18,7 @@ If you know the instance type you want to use, based on prior experience or some
 You may compare costs at https://aws.amazon.com/ec2/pricing/on-demand/, but keep in mind that instances with greater resoures will finish in less time.  
 After clicking on the instance type you want to use, click on "Next: Configure Instance Details" at the bottom of the screen.  
 
-1. Configure the IAM role  
+1. Configure the IAM role.   
 On the page that opens, choose "SSMRole" from the drop-down menu next to "IAM role."  
 
 1. Add EBS storage.   
@@ -100,7 +100,7 @@ The MiGA-Web Welcome page will open and you may begin using MiGA-Web. If you clo
 ## Log into MiGA-CLI using a Terminal
 
 Alternatively, open your Mac, Ubuntu or git bash terminal. Assuming the following:  
-- .ssh is the path to your key file
+- ~/.ssh is the path to your key file
 - MyKeyPair.pem is the name of your key file
 - 18.190.158.158 is the public IP address
  
