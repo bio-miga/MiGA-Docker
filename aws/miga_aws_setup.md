@@ -22,7 +22,7 @@ After clicking on the instance type you want to use, click on "Next: Configure I
 On the page that opens, choose "SSMRole" from the drop-down menu next to "IAM role."  
 
 1. Add EBS storage.   
-Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 100Gb. Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but at least 200 Gb. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will remain available to attach to another instance in the future. When you are sure you are finished with it, you can manually delete it.   
+Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 100Gb. Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but at least 200 Gb. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will remain available to attach to another instance in the future. When you are sure you are finished with a storage volume, you can manually delete it.   
 
 1. Add tags.  
 Click on "Next: Add tags" at the bottom of the screen. You may skip this step if you wish.  
