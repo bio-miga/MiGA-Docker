@@ -84,7 +84,7 @@ cd /miga-web
 
 # Start the server.
 export SECRET_KEY_BASE='bundle exec rake secret'  
-bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
+nohup bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma & > nohup.out
 ```
 After a few seconds the server should start.  
 
