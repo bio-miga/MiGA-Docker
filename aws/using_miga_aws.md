@@ -78,7 +78,7 @@ lsblk
 cd /home/ubuntu/miga-data
 
 # Bind the two database directories.
-sudo mount --bind db ../../miga-web/db 
+sudo mount --bind db /miga-web/db 
 
 # Move to the miga-web directory.
 cd /miga-web
