@@ -29,7 +29,7 @@ After you are logged in, restart the server by entering:
 ```
 cd /miga-web/
 export SECRET_KEY_BASE='bundle exec rake secret'  
-bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
+nohup bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma & > nohup.out
 ```
 
 ## Stopping a MiGA AWS Instance
@@ -85,7 +85,7 @@ cd /miga-web
 
 # Start the server.
 export SECRET_KEY_BASE='bundle exec rake secret'  
-bundle exec rails server -e production -b 0.0.0.0 -p 80 Puma
+nohup bundle exec rails server -e production -b 0.0.0.0 -p 80 Puma & > nohup.out
 ```
 
 You can then access your MiGA instance by both browser (MiGA-Web) and command line interfaces, and previous projects should be available. 
