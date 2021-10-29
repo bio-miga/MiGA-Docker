@@ -15,7 +15,7 @@ Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Pri
 1. Choose the instance type.  
 On the page that opens, choose an instance type. For test purposes, you may choose the free tier "t2-micro" instance. For "real work," you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
 If you know the instance type you want to use, based on prior experience or someone's recommendation, you may find it more easily by clicking on the "All instance families" button and then choosing an instance family. For example, choosing the m5n family you can more easily find m5n.16xlarge with 64 vCPUs, 256 GB of RAMM and 75 Gigabit Network Performance.  
-You may compare costs at https://aws.amazon.com/ec2/pricing/on-demand/, but keep in mind that instances with greater resoures will finish in less time.  
+You may compare costs at [https://aws.amazon.com/ec2/pricing/on-demand/](http://mdp.tylingsoft.com/), but keep in mind that instances with greater resoures will finish in less time.  
 After clicking on the instance type you want to use, click on "Next: Configure Instance Details" at the bottom of the screen.  
 
 1. Configure the IAM role.   
