@@ -22,13 +22,13 @@ After clicking on the instance type you want to use, click on "Next: Configure I
 On the page that opens, choose "SSMRole" from the drop-down menu next to "IAM role."  
 
 1. Add EBS storage.   
-Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 100Gb. Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but at least 200 Gb. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will remain available to attach to another instance in the future. When you are sure you are finished with a storage volume, you can manually delete it.   
+Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 20 Gb. Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but at least 100 Gb. If you add the Phyla_Lite and TypeMat_Lite databases, they will take up nearly 25 Gb, and you will need more room for your projects. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will remain available to attach to another instance in the future, for example when the MiGA AMI is updated. When you are sure you are finished with a storage volume, you can manually delete it.   
 
 1. Add tags.  
 Click on "Next: Add tags" at the bottom of the screen. You may skip this step if you wish.  
 
 1. Configure the security group.  
-Click on "Next: Configure Security Group" at the bottom of the page. On the page that opens, there will already be a rule of type SSH with a port range of 22. You need to add two more rules using the "Add Rule" button. Click "Add Rule" and select "HTTP" from the drop down menu. Leave the port range at 80 but change the Source to "Anywhere." Click the "Add Rule" button again. Leave the Type as Custom TCP but change the port range to 8080 and the Source to Anywhere. Click on "Review and Launch" at the bottom of the screen. Scroll down the page that opens and click "Launch."   
+Click on "Next: Configure Security Group" at the bottom of the page. On the page that opens, there will already be a rule of type SSH with a port range of 22. You need to add two more rules using the "Add Rule" button. Click "Add Rule" and select "HTTP" from the drop down menu. Leave the port range at 80 but change the Source to "Anywhere." Click the "Add Rule" button again. Leave the Type as Custom TCP but change the port range to 8080 and the Source to "Anywhere." Click on "Review and Launch" at the bottom of the screen. Scroll down the page that opens and click "Launch."   
 
 1. Select the key pair.  
 In the box that opens, select the key pair you previously created from the lower drop-down menu, or, if necessary, choose "Create a new key pair" from the upper drop-down menu. A key pair is not necessary if you will use only MiGA-Web, but it is necessary to log into the instance using a terminal and to retrieve results via FTP. Check the "I acknowledge ..." box and then click on "Launch instances."  
@@ -81,12 +81,23 @@ sudo mount --bind db /miga-web/db
 
 # Move to the miga-web directory.
 cd /miga-web
-
-# Start the server.
-export SECRET_KEY_BASE='bundle exec rake secret'  
-nohup bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma & > nohup.out
 ```
-After a few seconds the server should start.  
+
+You are less likely to have problems with the web server stoppong if you start it from a tmux session. To do this, enter:  
+
+```
+tmux new -s web-server
+```
+
+A green band will appear across the bottom of the session terminal window indicating that you are in a tmux session named web-server. Then enter the following:
+
+```
+export SECRET_KEY_BASE='bundle exec rake secret'  
+bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
+```
+Wait a few seconds until messages stop scrolling down the screen. Then exit the tmux session by entering ```Ctrl-B``` d by pressing the Ctrl key, then the b key, releasing both, and pressing the d key. The green band will disappear from the bottom of the screen indicating that you are no longer in the tmux session but the web server will continue to run in the background.  
+
+You may now close the session terminal and log out of your AWS account.  
 
 ## Log onto MiGA-Web using a Browser
 
@@ -97,12 +108,12 @@ http://the _public_ip_address_you_wrote_down:8080
 ```
 The MiGA-Web Welcome page will open and you may begin using MiGA-Web. If you close your browser, the instance will continue to run until you log back into your AWS account and stop it.   
 
-## Log into MiGA-CLI using a Terminal
+## Log into MiGA-CLI Using a Terminal
 
 Alternatively, open your Mac, Ubuntu or git bash terminal. Assuming the following:  
 - ~/.ssh is the path to your key file
 - MyKeyPair.pem is the name of your key file
-- 18.190.158.158 is the public IP address
+- 18.190.158.158 is the public IP address of your instance
  
 Enter, substituting proper values as necessary:
 
@@ -119,6 +130,6 @@ If you create a MiGA job at this point, the job will be killed if you close the 
 
 ## Saving and Restarting the MiGA Instance
 
-To save your MiGA instance, go the page displaying it and from the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions", menu choosing "Instance State", and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
+To save your MiGA instance, log into oyour AWS account and go the page displaying it. From the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions", menu choosing "Instance State", and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
 
 When you restart the MiGA instance, the server will not be running and so the instance will not be accessible via a browser. Also, any previous results will not be available until you remount the device they are on. See the next section **Using MiGA AWS** for how to address these problems.  
