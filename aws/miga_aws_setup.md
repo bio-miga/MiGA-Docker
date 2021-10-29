@@ -79,9 +79,19 @@ cd miga-data/
 # Bind the two database directories.
 sudo mount --bind db /miga-web/db 
 
-# Move to the miga-web directory.
-cd /miga-web
+# Configure MiGA
+cd
+miga init
 ```
+Accept all of the default values except for the following questions:
+
+- Should I include MyTaxa modues?  
+Answer no. MyTaxa modules are not included in the MiGA AMI.  
+- A template daemon already exits. Do you want to preserve it?  
+Answer no.  
+- How many jobs can I launch at once?  
+Answer one-half of the nubmer of vCPUs for your instance.  
+
 
 You are less likely to have problems with the web server stopping if you start it from a tmux session. To do this, enter:  
 
@@ -92,10 +102,14 @@ tmux new -s web-server
 A green band will appear across the bottom of the session terminal window indicating that you are in a tmux session named web-server. Then enter the following:
 
 ```
+# Move to the miga-web directory.
+cd /miga-web
+
+# Start the server.
 export SECRET_KEY_BASE='bundle exec rake secret'  
 bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
 ```
-Wait a few seconds until messages stop scrolling down the screen. Then exit the tmux session by entering ```Ctrl-B d``` by pressing the Ctrl key, then the b key, releasing both, and pressing the d key. The green band will disappear from the bottom of the screen indicating that you are no longer in the tmux session but the web server will continue to run in the background.  
+Wait a few seconds until messages stop scrolling down the screen. Then exit the tmux session by entering ```Ctrl-B d``` by pressing the Ctrl key, then the b key, releasing both, and pressing the d key. The green band will disappear from the bottom of the screen indicating that you are no longer in the tmux session, but the web server will continue to run in the background.  
 
 You may now close the session terminal and log out of your AWS account (but make sure you have written down the public IP address first!).  
 
@@ -130,6 +144,6 @@ If you create a MiGA job at this point, the job will be killed if you close the 
 
 ## Saving and Restarting the MiGA Instance
 
-To save your MiGA instance, log into oyour AWS account and go the page displaying it. From the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions", menu choosing "Instance State", and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
+To save your MiGA instance, log into your AWS account and go the page displaying it. From the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions", menu choosing "Instance State", and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
 
 When you restart the MiGA instance, the server will not be running and so the instance will not be accessible via a browser. Also, any previous results will not be available until you remount the device they are on. See the next section **Using MiGA AWS** for how to address these problems.  
