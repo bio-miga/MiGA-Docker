@@ -83,7 +83,7 @@ sudo mount --bind db /miga-web/db
 cd /miga-web
 ```
 
-You are less likely to have problems with the web server stoppong if you start it from a tmux session. To do this, enter:  
+You are less likely to have problems with the web server stopping if you start it from a tmux session. To do this, enter:  
 
 ```
 tmux new -s web-server
@@ -95,11 +95,11 @@ A green band will appear across the bottom of the session terminal window indica
 export SECRET_KEY_BASE='bundle exec rake secret'  
 bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
 ```
-Wait a few seconds until messages stop scrolling down the screen. Then exit the tmux session by entering ```Ctrl-B``` d by pressing the Ctrl key, then the b key, releasing both, and pressing the d key. The green band will disappear from the bottom of the screen indicating that you are no longer in the tmux session but the web server will continue to run in the background.  
+Wait a few seconds until messages stop scrolling down the screen. Then exit the tmux session by entering ```Ctrl-B d``` by pressing the Ctrl key, then the b key, releasing both, and pressing the d key. The green band will disappear from the bottom of the screen indicating that you are no longer in the tmux session but the web server will continue to run in the background.  
 
-You may now close the session terminal and log out of your AWS account.  
+You may now close the session terminal and log out of your AWS account (but make sure you have written down the public IP address first!).  
 
-## Log onto MiGA-Web using a Browser
+## Log onto MiGA-Web Using a Browser
 
 Open your browser and enter:  
 
