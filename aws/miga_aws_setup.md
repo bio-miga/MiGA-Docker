@@ -22,7 +22,7 @@ After clicking on the instance type you want to use, click on "Next: Configure I
 On the page that opens, choose "SSMRole" from the drop-down menu next to "IAM role."  
 
 1. Add EBS storage.   
-Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 20 Gb. Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but at least 100 Gb. If you add the Phyla_Lite and TypeMat_Lite databases, they will take up nearly 25 Gb, and you will need more room for your projects. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will remain available to attach to another instance in the future, for example when the MiGA AMI is updated. When you are sure you are finished with a storage volume, you can manually delete it.   
+Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 50 Gb. (This may seem unnecessarily large for the root volume, but is the minimum size required to perform installation of the TypeMat\_Lite database.) Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but we suggest at least 100 Gb. If you add the Phyla\_Lite and TypeMat\_Lite databases, they will take up nearly 25 Gb, and you will need more room for your projects. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will not be automatically deleted if you terminate the instance. When you are sure you are finished with a storage volume, you can manually delete it.   
 
 1. Add tags.  
 Click on "Next: Add tags" at the bottom of the screen. You may skip this step if you wish.  
@@ -90,7 +90,7 @@ Answer no. MyTaxa modules are not included in the MiGA AMI.
 - A template daemon already exits. Do you want to preserve it?  
 Answer no.  
 - How many jobs can I launch at once?  
-Answer one-half of the nubmer of vCPUs for your instance.  
+Answer one-half of the number of vCPUs for your instance.  
 
 
 You are less likely to have problems with the web server stopping if you start it from a tmux session. To do this, enter:  
