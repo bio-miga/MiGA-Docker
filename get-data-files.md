@@ -34,7 +34,7 @@ rm pseudomonads.tar.gz
 The resulting files and directory strucure are:
 
 ```
-$HOME/miga_genomes
+$HOME/miga-data/miga_genomes
 ├── a_capsulatum
 │   └── A_capsulatum_reads.fasta
 ├── dehalo
