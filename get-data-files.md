@@ -6,8 +6,8 @@ Data for the exercises in this GitBook are available on GitHub at `https://githu
 #! /bin/bash
 
 # Get example data
-mkdir ~/miga_genomes
-cd ~/miga_genomes
+mkdir -p $HOME/miga-data/miga_genomes
+cd $HOME/miga-data/miga_genomes
 mkdir a_capsulatum
 mkdir dehalo
 mkdir misc
