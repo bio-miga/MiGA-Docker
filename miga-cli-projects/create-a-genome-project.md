@@ -1,17 +1,17 @@
 # Create a Genome Project
 
-For this exercise 6 _Psuedomonas_ genomes with the file extension `fasta` should be in the directory `$HOME/miga_genomes/pseudo`. This will be the case if you followed the instructions in the section **Get Example Data**. Otherwise you will have to make adjustments to the commands below.
+For this exercise 6 _Psuedomonas_ genomes with the file extension `fasta` should be in the directory `$HOME/miga-data/miga_genomes/pseudo`. This will be the case if you followed the instructions in the section **Get Example Data**. Otherwise you will have to make adjustments to the commands below.
 
-This exercise takes approximately 30 minutes to run.
+This exercise takes approximately 30 minutes to run using 8 CPUs.  
 
-Log into the HPCC with your user name and password. From your home directory, start MiGA, create a new project named `pseudo`, and move into the `pseudo` directory:
+Log in and start MIGA CLI using the approriate method for a [local installation](../installing-docker/starting-miga#starting-local-miga-cli)(**Starting & Stopping MiGA Docker**), MiGA on a cluster (**Starting & Stopping MiGA Docker**), or on AWS (**Setup a MiGA Instance**).  
+
+From your home directory, create a new project named `pseudo`:
 
 ```text
-cd
-mkdir pseudo
-singularity shell MiGA
-miga new -P ~/pseudo -t genomes
-cd pseudo
+mkdir -p $HOME/miga-data/pseudo
+cd $HOME/miga-data/pseudo
+miga new -P . -t genomes
 ```
 
 You can safey ignore any warning about a bind mount. The `-t` argument is needed to specify what kind of project you are running. Acceptable types are :
@@ -24,16 +24,14 @@ For this example, we are using genomes from isolates.
 Add your datasets ending with fasta to the MiGA project. In doing this, turn off mytaxa scan and make sure distances is turned on, as in the command below. There must be no space after the comma\(s\) in the items listed for the -m flag or an error will occur. Here the -t flag specifies the type of genome being added to the project. The -i flag specifies that the datasets being uploaded are assembled genomes.
 
 ```text
-miga add -P . -t genome -i assembly ~/miga_genomes/pseudo/*.fasta -m run_mytaxa_scan=false,run_distances=true
+miga add -P . -t genome -i assembly ../miga_genomes/pseudo/*.fasta -m run_mytaxa_scan=false,run_distances=true
 ```
 
 Launch the daemon to start MiGA processing your data:
 
 ```text
-miga daemon start -P . --shutdown-when-done
+miga daemon start -P . 
 ```
-
-The "shutdown-when-done" argument automatically stops the daemon when processing is complete.
 
 After the job starts, you can display the information about the job:
 
@@ -68,16 +66,10 @@ P_fluorescens  -          -              -             -              done      
 
 Because the datasets submitted were assembled genomes, assembly is the first column to have entries. When all entries under the stats column read "done," processing is finished.
 
-If you did not use the "shutdown-when-done" argument when starting the daemon, you can stop it with the command:
+When the project is finished, sotp the daemon with the command:
 
 ```text
 miga daemon stop -P .
-```
-
-Exit the MiGA singularity container with:
-
-```text
-exit
 ```
 
 See the section **Exploring Results** for how to access the results of your project.
