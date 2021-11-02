@@ -1,32 +1,39 @@
 # Table of contents
 
+* [README](README.md)
+
 ## MiGA Docker
+
 * [MiGA Docker](installing-docker/README.md)
   * [Installing Docker for Windows](installing-docker/installing-docker-for-windows.md)
-  * [Installing Docker for Mac OS](installing-docker/installing-docker-for-mac-os.md)
-  * [Installing Docker for Linux](installing-docker/installing-docker-for-linux.md)
+  * [Installing Docker for Mac OS](miga-docker/installing-docker/installing-docker-for-mac-os.md)
+  * [Installing Docker for Linux](miga-docker/installing-docker/installing-docker-for-linux.md)
   * [Creating the MiGA Container](creating-the-container/README.md)
     * [Locally Using Docker Commands](creating-the-container/using-docker-commands.md)
     * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
   * [Starting & Stopping MiGA Docker](starting-miga/starting-miga.md)
 
 ## MiGA AWS
-* [MiGA AWS](aws/miga_aws.md)  
-  * [Create an AWS Account](aws/miga_aws_account.md)  
-  * [Create a Key Pair](aws/miga_aws_key_pair.md)  
-  * [Setup a MiGA Instance](aws/miga_aws_setup.md)
-  * [Using MiGA AWS](aws/using_miga_aws.md)
+
+* [MiGA AWS](aws/miga\_aws.md)
+  * [Create an AWS Account](aws/miga\_aws\_account.md)
+  * [Create a Key Pair](aws/miga\_aws\_key\_pair.md)
+  * [Setup a MiGA Instance](aws/miga\_aws\_setup.md)
+  * [Using MiGA AWS](aws/using\_miga\_aws.md)
 
 ## MiGA Projects
-* [MiGA Projects](miga-projects.md)  
-* [Get Example Data](get-data-files.md)  
+
+* [MiGA Projects](miga-projects.md)
+* [Get Example Data](get-data-files.md)
 
 ## Reference Databases
-* [Add a Reference Database \(Optional\)](add-a-reference-database-optional/README.md)
+
+* [Add a Reference Database (Optional)](add-a-reference-database-optional/README.md)
   * [Add Reference Databases from the Command Line](add-a-reference-database-optional/add-reference-databases-from-the-command-line.md)
-  * [Add Reference Databases using MiGA-Web](add-a-reference-database-optional/add-reference-databases-using-miga-web.md) 
+  * [Add Reference Databases using MiGA-Web](add-a-reference-database-optional/add-reference-databases-using-miga-web.md)
 
 ## MiGA-Web Projects
+
 * [Create A Genome Project](miga-web-projects/create-a-genome-project.md)
 * [Classifying Genomes](miga-web-projects/classifying-genomes/README.md)
   * [Using Your Own Project](miga-web-projects/classifying-genomes/using-your-own-project.md)
@@ -35,6 +42,7 @@
 * [Assemble a Genome](miga-web-projects/assemble-a-genome.md)
 
 ## MiGA-CLI Projects
+
 * [Introduction](miga-cli-projects/intro.md)
 * [Create a Genome Project](miga-cli-projects/create-a-genome-project.md)
 * [Classifying Genomes](miga-cli-projects/classify-a-genome/README.md)
@@ -44,7 +52,8 @@
 * [Assemble a Genome](miga-cli-projects/assemble-a-genome.md)
 
 ## Scripts for Cluster Projects
-* [Installing TypeMat_Lite](cluster-projects/installing-typemat-lite.md)
+
+* [Installing TypeMat\_Lite](cluster-projects/installing-typemat-lite.md)
 * [Submit a Genomes Project](cluster-projects/submitting-genome-project.md)
 * [Add a Query Sequence to a Genomes Project](cluster-projects/submitting-add-query.md)
 * [Add Classification to a Genome Project](cluster-projects/submitting-add-classification.md)
@@ -54,4 +63,5 @@
 * [Submitting Large Jobs](cluster-projects/submitting-large-jobs.md)
 
 ## Exploring Results
+
 * [Exploring Results](exploring-results/exploring-results.md)
