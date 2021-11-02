@@ -4,7 +4,7 @@ For this exercise 6 _Psuedomonas_ genomes with the file extension `fasta` should
 
 This exercise takes approximately 30 minutes to run using 8 CPUs.  
 
-Log in and start MIGA CLI using the approriate method for a [local installation](../starting-miga/starting-miga#starting-local-miga-cli)(**Starting & Stopping MiGA Docker**), MiGA on a cluster (**Starting & Stopping MiGA Docker**), or on AWS (**Setup a MiGA Instance**).  
+Log in and start MIGA CLI using the approriate method for a [local installation](https://github.com/bio-miga/container-manual/blob/main/starting-miga/starting-miga/#starting-local-miga-cli)(**Starting & Stopping MiGA Docker**), MiGA on a cluster (**Starting & Stopping MiGA Docker**), or on AWS (**Setup a MiGA Instance**).  
 
 From your home directory, create a new project named `pseudo`:
 
