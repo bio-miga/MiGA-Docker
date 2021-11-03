@@ -10,7 +10,7 @@ From near the right-hand end of the menu bar at the top of the screen, select th
 From near the left-hand end of the menu bar at the top of the screen, select "Services" and then "EC2" located under the "Compute" category. On the page that opens, click "Launch instance" and select "Launch instance" from the drop-down menu that opens.   
 
 1. Choose the MiGA AMI.  
-Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima1.0.5.1-OCT15."  
+Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima-1.1.1.1."  
 
 1. Choose the instance type.  
 On the page that opens, choose an instance type. For test purposes, you may choose the free tier "t2-micro" instance. For "real work," you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
@@ -83,7 +83,7 @@ sudo mount --bind db /miga-web/db
 cd
 miga init
 ```
-Accept all of the default values except for the following questions:
+Accept all of the default values by pressing **Enter** except for the following questions:
 
 - Should I include MyTaxa modues?  
 Answer no. MyTaxa modules are not included in the MiGA AMI.  
@@ -91,7 +91,6 @@ Answer no. MyTaxa modules are not included in the MiGA AMI.
 Answer no.  
 - How many jobs can I launch at once?  
 Answer one-half of the number of vCPUs for your instance.  
-
 
 You are less likely to have problems with the web server stopping if you start it from a tmux session. To do this, enter:  
 
