@@ -12,11 +12,32 @@ You need a Linux bash shell to complete these instructions. For Mac users, the t
 1. On the page that opens, select the Amazon Linux AMI. It is likely the first listed.  
 1. On the page that opens, select  the "t2.micro" instance. Then click on the blue button  "Review and Launch."  
 1. On the page that opens, scroll down and click the blue button "Launch." A box will open for you to select a key pair or create a new key pair. In the space under Key pair name, enter a name for the key pair, *e.g.* MyKeyPair, and then click the button "Download Key Pair."   
-1. Open you Mac or Ubuntu terminal, or start git bash. When the terminal opens, you should be in your home directory. Move the downloaded file to the hidden directory .ssh in your home directory with the command below. You may need to edit the path to the downloaded file. Also, if you are using a Mac, the extention "text" may have been appended to the downloaded file name.  
+1. Open you Mac or Ubuntu terminal, or start git bash. When the terminal opens, you should be in your home directory. 
+1. Move the downloaded file to the hidden directory .ssh in your home directory with the command below. You may need to edit the path to the downloaded file.  
 
 ```
 mv ~/Downloads/MyKeyPair.pem ~/.ssh/MyKeyPair.pem
 ```
+**Note for Mac users:** The hidden directory ~/.ssh may not exist on your system, in which case you need to create it beforee issuing the above command. You can check if it exists by listing the files in your home directory with:  
+
+```
+cd
+ls -la
+```
+
+If the file does not exist, create it with:  
+
+```
+cd 
+mkdir .ssh
+```
+
+Also, the extention "text" may have been appended to the downloaded file name, in which case you can rename it as it is moved to .ssh with:  
+
+```
+mv ~/Downloads/MyKeyPair.pem.text ~/.ssh/MyKeyPair.pem
+```
+
 8. Make the file read only with the following commands:
 
 ```
