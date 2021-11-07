@@ -1,12 +1,12 @@
 # Using a Reference Database
 
-There are several ways to classify reference genomes using a reference database. The `classify_wf` command automates several steps including downloading a reference database \(if one is not found in th default directory\), creating a new project, and controlling the daemon. Depending on the number of genomes and whether or not a reference database is already available, this method can take a significant amount of time and the terminal is not usable while the process is running. Thus it is best to submit such a job to the cluster \(see the section on **Submitting MiGA Jobs** for examples\). Also of note, several steps typically included in processing genomes are skipped when using `classify_wf`.
+There are several ways to classify reference genomes using a reference database. The `classify_wf` command automates several steps including downloading a reference database \(if one is not found in the default directory\), creating a new project, and controlling the daemon. Depending on the number of genomes and whether or not a reference database is already available, this method can take a significant amount of time and the terminal is not usable while the process is running. Thus it is best to download the database ahead of time in a tmux session (MiGA AWS) or by submission if using a cluster. Also of note, several steps typically included in processing genomes are skipped when using `classify_wf`.
 
 Alternatively, a reference database can be attached to a project when \(or after\) creating it and the taxonomy step will be included when the project is run \(or re-run\). In either of these cases, it is necessary to first obtain the reference database.
 
 ### Download a Reference Database
 
-This exercise assumes that you have installed **TypeMat\_Lite**. Installation of this database takes more than an hour during which time the terminal is not usable. It is therefore recommended that you install **TypeMat\_Lite** by submitting a job. For the job script, see **Installing TypeMat\_Lite** under **Submitting MiGA Jobs**.
+To save time, this tutorial uses the smaller database **Phyla_Lite**.  If you have not already installed it, see the instrucitons in the section **Add Reference Databnases from the Command Line**.  
 
 ### Add classification to an existing project
 
@@ -15,8 +15,9 @@ To classify the reference genomes in a previously created project, use the edit 
 This exercise takes approximately 90 minutes to run interactively. The same execise is included under **Submitting MiGA Jobs** if you would rather run it that way.
 
 ```text
-miga edit -P ~/pseudo -m ref_project=$HOME/.miga_db/TypeMat_Lite
-miga daemon start -P ~/pseudo  --shutdown_when_done
+cd $HOME/miga-data/pseudo
+miga edit -P . -m ref_project=$HOME/.miga_db/Phyla_Lite
+miga daemon start -P .  
 ```
 
 Monitor progress in the usual way:
