@@ -5,10 +5,8 @@ Start Docker if it is not already running.
 If you are running Mac OS or Linux, open the terminal. If you are running Windows, open the **PowerShell** terminal by typing "PowerShell" into the Windows search box in the lower left of the screen and hitting "Enter." Then download the Docker image to your computer by entering the following into the terminal window:
 
 ```text
-docker pull miga/miga:1.0.2.0
+docker pull miga/miga:latest
 ```
-
-**Note:** As of 11 May 2021 the tag must be specified.
 
 Create the Miga container and link it to a directory on you drive, _i.e._ external to the image, with the following:
 
