@@ -6,7 +6,7 @@ The following instructions will allow you to create and download a key pair and 
 
 You need a Linux bash shell to complete these instructions. For Mac users, the terminal provides this. If Windows users have WSL2 and Ubuntu installed, they may use the Ubuntu terminal. Otherwise Windows users should install Git for Windows (https://gitforwindows.org/) which includes git bash, a lightweight tool also useful for working with (surprise!) git.  
 
-1. Log into your AWS account.  
+1. Log into your AWS account and choose the region US East (Ohio) from the menu bar at the top of the screen. Key pairs are specific to a region, and the MiGA AMI is in the US East (Ohio) region.  
 1. Under Services, select EC2.  
 1. Click on the orange pull-down menu "Launch Instance" and select "Launch instance."  
 1. On the page that opens, select the Amazon Linux AMI. It is likely the first listed.  
