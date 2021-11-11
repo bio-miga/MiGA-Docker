@@ -6,8 +6,8 @@
 
 * [MiGA Docker](installing-docker/README.md)
   * [Installing Docker for Windows](installing-docker/installing-docker-for-windows.md)
-  * [Installing Docker for Mac OS](miga-docker/installing-docker/installing-docker-for-mac-os.md)
-  * [Installing Docker for Linux](miga-docker/installing-docker/installing-docker-for-linux.md)
+  * [Installing Docker for Mac OS](installing-docker/installing-docker-for-mac-os.md)
+  * [Installing Docker for Linux](installing-docker/installing-docker-for-linux.md)
   * [Creating the MiGA Container](creating-the-container/README.md)
     * [Locally Using Docker Commands](creating-the-container/using-docker-commands.md)
     * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
