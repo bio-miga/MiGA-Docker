@@ -4,21 +4,14 @@ For this exercise 10 _Dehalococcoides_ genomes with the file extension `fasta` s
 
 This exercise takes approximately 90 minutes to run interactively. The same execise is included under **Submitting MiGA Jobs** if you would rather run it that way.
 
-Log into the HPCC with your user name and password.
+If you need to, log in and start MIGA CLI using the appropriate method for a [local installation](../starting-miga/starting-miga.md#starting-local-miga-cli) (**Starting & Stopping MiGA Docker**), MiGA [on a cluster](../starting-miga/starting-miga.md#starting-miga-singularity) (**Starting & Stopping MiGA Docker**), or [on AWS](../aws/miga\_aws\_setup.md#log-into-miga-cli-using-a-terminal) (**Setup a MiGA Instance**).
 
-Create a directory for your project in your home directory:
-
-```text
-cd
-mkdir dehalo
-```
-
-Still from your home directory, start MiGA, create a new project named `dehalo`, and move into the `dehalo` directory:
+Create a directory for your project in the `miga-data` directory, move into it and initialize a clade project:
 
 ```text
-singularity shell MiGA
-miga new -P ~/dehalo -t clade
-cd dehalo
+mkdir $HOME/miga-data/dehalo
+cd $HOME/miga-data/dehalo
+miga new -P . -t clade
 ```
 
 The `-t` argument is needed to specify what kind of project you are running. Acceptable types are :
@@ -33,7 +26,7 @@ It is not necessary to add a reference database to a clade project. The genomes 
 Add your data set to the MiGA project. In doing this, turn off mytaxa scan, as in the command below. Here the -t flag specifies that the data being uploaded are genomes and the -i flag specifies that they are already assembled.
 
 ```text
-miga add -P . -t genome -i assembly ~/miga_genomes/dehalo/*.fna -m run_mytaxa_scan=false
+miga add -P . -t genome -i assembly $HOME/miga-data/miga_genomes/dehalo/*.fna -m run_mytaxa_scan=false
 ```
 
 Launch the daemon to start MiGA processing your data:
@@ -79,17 +72,18 @@ GCF_004684285_1_ASM468428v1_genomic  -          -              -             -  
 
 When all entries in the stats column read "done," the project is finished.
 
+If you used the `---shutdown_when_done` flag, you can also check if the project is done by listing the contents of the daemon directory:  
+
+```
+ls daemon
+```
+If a file ending in `pid` is present, the daemon is still running.  
+
 If you did not use the --shutdown-when-done arguement when starting the daemon, you can stop it with:
 
 ```text
 miga daemon stop -P .
 ```
 
-Exit the MiGA singularity containeer with:
-
-```text
-exit
-```
-
-See the section "Exploring Results" for how to access the results of your project.
+See the section "Exploring Results" for how to access the results of your clade project.
 
