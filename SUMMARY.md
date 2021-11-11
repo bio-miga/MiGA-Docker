@@ -15,7 +15,7 @@
 
 ## MiGA AWS
 
-* [MiGA AWS](aws/miga\_aws.md)
+* [MiGA AWS](aws/miga-aws.md)
   * [Create an AWS Account](aws/miga-aws-account.md)
   * [Create a Key Pair](aws/miga-aws-key-pair.md)
   * [Setup a MiGA Instance](aws/miga-aws-setup.md)
