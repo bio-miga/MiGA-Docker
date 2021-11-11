@@ -24,13 +24,13 @@ For this example, we are using genomes from isolates.
 Add your datasets ending with fasta to the MiGA project. In doing this, turn off mytaxa scan and make sure distances is turned on, as in the command below. There must be no space after the comma(s) in the items listed for the -m flag or an error will occur. Here the -t flag specifies the type of genome being added to the project. The -i flag specifies that the datasets being uploaded are assembled genomes.
 
 ```
-miga add -P . -t genome -i assembly ../miga_genomes/pseudo/*.fasta -m run_mytaxa_scan=false,run_distances=true
+miga add -P . -t genome -i assembly $HOME/miga-data/miga_genomes/pseudo/*.fasta -m run_mytaxa_scan=false,run_distances=true
 ```
 
 Launch the daemon to start MiGA processing your data:
 
 ```
-miga daemon start -P . 
+miga daemon start -P . --shutdowon_when_done
 ```
 
 After the job starts, you can display the information about the job:
@@ -64,9 +64,15 @@ P_fluorescens  -          -              -             -              done      
    P_syringae  -          -              -             -              done      done  done             done  done    done         queued     queued    queued
 ```
 
-Because the datasets submitted were assembled genomes, assembly is the first column to have entries. When all entries under the stats column read "done," processing is finished.
+Because the datasets submitted were assembled genomes, assembly is the first column to have entries. When all entries under the stats column read "done," processing is finished. You can also check that the project is finished by listing the files in the project daemon directory.  
 
-When the project is finished, sotp the daemon with the command:
+```
+ls daemon
+```
+
+If a file ending with `pid` is present, the daemon is still running.
+
+If you did not include `--shutdown_when_done` when you started the daemon and the job is finished, you can stop the daemon with the command:
 
 ```
 miga daemon stop -P .
