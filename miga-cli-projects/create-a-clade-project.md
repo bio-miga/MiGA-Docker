@@ -2,7 +2,7 @@
 
 For this exercise 10 _Dehalococcoides_ genomes with the file extension `fasta` should be in the directory `$HOME/miga_genomes/dehalo`. This will be the case if you followed the instructions in the section **Get Example Data**. Otherwise you will have to make adjustments to the commands below.
 
-This exercise takes approximately 90 minutes to run interactively. The same execise is included under **Submitting MiGA Jobs** if you would rather run it that way.
+This exercise takes approximately 90 minutes to run interactively. The same exercise is included under **Submitting MiGA Jobs** if you would rather run it that way.
 
 If you need to, log in and start MIGA CLI using the appropriate method for a [local installation](../starting-miga/starting-miga.md#starting-local-miga-cli) (**Starting & Stopping MiGA Docker**), MiGA [on a cluster](../starting-miga/starting-miga.md#starting-miga-singularity) (**Starting & Stopping MiGA Docker**), or [on AWS](../aws/miga\_aws\_setup.md#log-into-miga-cli-using-a-terminal) (**Setup a MiGA Instance**).
 
@@ -21,7 +21,7 @@ The `-t` argument is needed to specify what kind of project you are running. Acc
 
 For this example, we are using closely related genomes \(expected ANI &gt;= 90%\), so we choose `clade`.
 
-It is not necessary to add a reference database to a clade project. The genomes submitted will be compared among themelves.
+It is not necessary to add a reference database to a clade project. The genomes submitted will be compared among themselves.
 
 Add your data set to the MiGA project. In doing this, turn off mytaxa scan, as in the command below. Here the -t flag specifies that the data being uploaded are genomes and the -i flag specifies that they are already assembled.
 

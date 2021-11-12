@@ -1,10 +1,10 @@
 # Create a Genome Project
 
-For this exercise 6 _Psuedomonas_ genomes with the file extension `fasta` should be in the directory `$HOME/miga-data/miga_genomes/pseudo`. This will be the case if you followed the instructions in the section **Get Example Data**. Otherwise you will have to make adjustments to the commands below.
+For this exercise 6 _Psuedomonas_ genomes with the file extension `fasta` should be in the directory `$HOME/miga-data/miga_genomes/pseudo`. This will be the case if you followed the instructions in the section **Get Example Data**. Otherwise, you will have to make adjustments to the commands below.
 
 This exercise takes approximately 30 minutes to run using 8 CPUs.
 
-Log in and start MIGA CLI using the appropriate method for a [local installation](../starting-miga/starting-miga.md#starting-local-miga-cli) (**Starting & Stopping MiGA Docker**), MiGA [on a cluster](../starting-miga/starting-miga.md#starting-miga-singularity)(**Starting & Stopping MiGA Docker**), or [on AWS](../aws/miga\_aws\_setup.md#log-into-miga-cli-using-a-terminal) (**Setup a MiGA Instance**).
+Log in and start MIGA CLI using the appropriate method for a [local installation ](../starting-miga/starting-miga.md#starting-local-miga-cli)(**Starting & Stopping MiGA Docker**), MiGA [on a cluster ](../starting-miga/starting-miga.md#starting-miga-singularity)(**Starting & Stopping MiGA Docker**), or [on AWS ](../aws/miga\_aws\_setup.md#log-into-miga-cli-using-a-terminal) (**Setup a MiGA Instance**).
 
 From your home directory, create a new project named `pseudo`:
 
@@ -14,7 +14,7 @@ cd $HOME/miga-data/pseudo
 miga new -P . -t genomes
 ```
 
-You can safey ignore any warning about a bind mount. The `-t` argument is needed to specify what kind of project you are running. Acceptable types are :
+You can safely ignore any warning about a bind mount. The `-t` argument is needed to specify what kind of project you are running. Acceptable types are:  
 
 * `genomes` for genomes in general
 * `clade` for closely related genomes

@@ -1,6 +1,6 @@
 # Assemble a Genome
 
-Log into the HPCC with your user name and password.
+Log into the HPCC with your username and password.
 
 Create a directory for your reads and put them in it. For this exercise we will start with trimmed fasta reads.
 
@@ -50,7 +50,7 @@ Launch the daemon to start MiGA processing your data:
 miga daemon start -P . --shutdown-when-done
 ```
 
-The `shutdown-when-done` arguement automatically stops the daemon when processing is finished.
+The `shutdown-when-done` argument automatically stops the daemon when processing is finished.
 
 After the job starts, you can display the information about the job:
 
@@ -70,7 +70,7 @@ And you can monitor the job progress by entering:
 miga ls -P . -p
 ```
 
-This should give someting like:
+This should give something like:
 
 ```text
 name                raw_reads  trimmed_reads  read_quality  trimmed_fasta  assembly  cds     essential_genes  ssu     mytaxa  mytaxa_scan  distances  taxonomy  stats

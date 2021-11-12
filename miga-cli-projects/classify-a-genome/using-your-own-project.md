@@ -12,9 +12,9 @@ cd $HOME/miga-data/pseudo
 miga add -P . -D P_aeruginosa -t genome --query -i assembly $HOME/miga-data/miga_genomes/pseudo/P_aeruginosa.fna
 ```
 
-**Note:** It is possible to add more than one genome to a project in this way, but in that case the -D flag cannot be used. Instead a -r flag giving a regex expression for the extraction of the genome names from the names of the files being submitted must be given. This is beyond the scope of this tutorial.
+**Note:** It is possible to add more than one genome to a project in this way, but in that case the -D flag cannot be used. Instead, an -r flag giving a regex expression for the extraction of the genome names from the names of the files being submitted must be given. This is beyond the scope of this tutorial.  
 
-Launch the daemon to start MiGA processing your data:
+Launch the daemon to start MiGA processing your data:  
 
 ```text
 miga daemon start -P . --shutdown_when_done
@@ -34,7 +34,7 @@ Also after the job starts, you can list the datasets being processed by entering
 miga ls -P . -i
 ```
 
-And you can monitor the job progress by entering:q
+And you can monitor the job progress by entering:  
 
 ```text
 miga ls -P . -p
@@ -70,7 +70,7 @@ If you did not include `--shutdown_when_done` when you started the daemon and th
 miga daemon stop -P .
 ```
 
-You may view the classfication results with:
+You may view the classification results with:
 
 ```text
 less data/09.distances/P_aeruginosa.intax.txt
