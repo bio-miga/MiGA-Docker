@@ -1,6 +1,6 @@
 # Installing Docker for Mac OS
 
-Before installing Docker Desktop in your Mac computer, you must make sure that your system meets the minimum requirements outlined below. These requiremnets depend on the CPU installed in yor computer. Refer to the Docker installation instructions at https://docs.docker.com/desktop/mac/install/ if the instructions below still leave you wondering.
+Before installing Docker Desktop in your Mac computer, you must make sure that your system meets the minimum requirements outlined below. These requirements depend on the CPU installed in your computer. Refer to the Docker installation instructions at https://docs.docker.com/desktop/mac/install/ if the instructions below still leave you wondering.
 
 ## Mac with Intel processor requirements:
 
@@ -20,11 +20,11 @@ software update --install-rosetta
 
 ## Installing Docker
 
-* Download Docker Desktop from https://desktop.docker.com/mac/stable/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-amd64
+* Download Docker Desktop from [this link.]( https://desktop.docker.com/mac/stable/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-amd64) The downloaded file will be named Docker.dmg.
 * Double-click Docker.dmg to open the installer.
 * Drag the Docker icon to the Applications folder.
 * Double-click Docker in the Applications folder to start Docker.
-* If a Docker Subscription Service window appears, click th checkbox to indicate that you accept the updated terms and then click Accept to continue.
+* If a Docker Subscription Service window appears, click the checkbox to indicate that you accept the updated terms and then click Accept to continue.
  
 ## Starting Docker Desktop
 

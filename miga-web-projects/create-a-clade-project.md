@@ -2,7 +2,7 @@
 
 A clade project is a collection of closely related genomes, _e.g._ from the same species. The genomes are compared against each other.
 
-For this exercise you may download several genomes of the same species from NCBI, or use the 10 _Dehalocccoides_ genomes available at [https://github.com/jfq3/data\_sets](https://github.com/jfq3/data_sets).
+For this exercise you may download several genomes of the same species from NCBI or use the 10 _Dehalocccoides_ genomes available at [https://github.com/jfq3/data\_sets](https://github.com/jfq3/data_sets).
 
 Open MiGA-Web in your browser and log in if necessary. Click on **Create new project**.
 
@@ -16,7 +16,7 @@ Scroll down to the bottom of the page and click on the blue **Create new MiGA pr
 
 After creating the project, you are taken to a page for uploading datasets. Click on **Upload reference datasets**. This will take you to another page for uploading genome sequences.
 
-The **Type of dataset** is **Genome**, and the **Type of input** is **Assembly in FastA format**. Click on **Choose Files** and select the 10 pseudomonad genomes \(or other genomes\) you are using. Scroll down to the bottom of the page and click on the blue button **Upload new dataset**.
+The **Type of dataset** is **Genome**, and the **Type of input** is **Assembly in Fasta format**. Click on **Choose Files** and select the 10 pseudomonad genomes \(or other genomes\) you are using. Scroll down to the bottom of the page and click on the blue button **Upload new dataset**.
 
 To start processing, you must turn on the daemon. Click on the green website icon in the upper right, select **Admin console**, **Control and review daemons**, and turn on the daemon for your project.
 

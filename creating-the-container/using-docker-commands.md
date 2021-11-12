@@ -8,13 +8,13 @@ If you are running Mac OS or Linux, open the terminal. If you are running Window
 docker pull miga/miga:latest
 ```
 
-Create the Miga container and link it to a directory on you drive, _i.e._ external to the image, with the following:
+Create the MiGA container and link it to a directory on you drive, _i.e._ external to the image, with the following:
 
 ```text
 docker run -p 9090:3000 -it -v D:/miga:/root/miga-data -v db_volume:/miga/db --name miga miga/miga:1.0.2.0 /bin/bash
 ```
 
-The line above enables file sharing with the container using the directory `D:/miga` on your computer. Edit this part of the command as appropriate. You will use this directory to input files to MiGA, and Miga will output results to this directory.
+The line above enables file sharing with the container using the directory `D:/miga` on your computer. Edit this part of the command as appropriate. You will use this directory to input files to MiGA, and MiGA will output results to this directory.
 
 The command also sets port 9090 for use with the MiGA-Web like version of the program. It will be accessed by entering the URL `localhost:9090` in your browser.
 

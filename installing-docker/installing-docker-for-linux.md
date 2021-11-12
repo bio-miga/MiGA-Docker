@@ -9,7 +9,7 @@ Instructions for installing Docker on a Linux platform can be found at https://d
  
 ## Uninstall old versions
 
-Enter the folloiwng command in your terminal to uninstall any older versions of the Docker engine if they exist. It is okay to enter the command if they do not exist.
+Enter the following command in your terminal to uninstall any older versions of the Docker engine if they exist. It is okay to enter the command if they do not exist.
 
 ```
 sudo apt-get remove docker docker-engine docker.io containerd runc

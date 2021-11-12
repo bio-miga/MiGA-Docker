@@ -31,7 +31,7 @@ mv P_aeruginosa.fasta P_aeruginosa.fna
 rm pseudomonads.tar.gz
 ```
 
-The resulting files and directory strucure are:
+The resulting files and directory structure are:
 
 ```
 $HOME/miga-data/miga_genomes

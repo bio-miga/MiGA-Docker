@@ -8,7 +8,7 @@ Being so much smaller, **Phyla\_Lite** takes only a few minutes to install. With
 miga get_db -n Phyla_Lite
 ```
 
-Being much larger, **TypeMat\_Lite** takes at least an hour to install, even with a fast internet connection. For a local installation of MiGA, install **TypeMat\_Lite** in the same directory with the following comamnd:
+Being much larger, **TypeMat\_Lite** takes at least an hour to install, even with a fast internet connection. For a local installation of MiGA, install **TypeMat\_Lite** in the same directory with the following command:
 
 ```text
 miga get_db -n TypeMat_Lite

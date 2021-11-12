@@ -15,7 +15,7 @@ Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Pri
 1. Choose the instance type.  
 On the page that opens, choose an instance type. For test purposes, you may choose the free tier "t2-micro" instance. For "real work," you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
 If you know the instance type you want to use, based on prior experience or someone's recommendation, you may find it more easily by clicking on the "All instance families" button and then choosing an instance family. For example, choosing the m5n family you can more easily find m5n.16xlarge with 64 vCPUs, 256 GB of RAMM and 75 Gigabit Network Performance.  
-You may compare costs at [https://aws.amazon.com/ec2/pricing/on-demand/](http://mdp.tylingsoft.com/), but keep in mind that instances with greater resoures will finish in less time.  
+You may compare costs at [https://aws.amazon.com/ec2/pricing/on-demand/](http://mdp.tylingsoft.com/), but keep in mind that instances with greater resources will finish in less time.  
 After clicking on the instance type you want to use, click on "Next: Configure Instance Details" at the bottom of the screen.  
 
 1. Configure the IAM role.   
@@ -28,7 +28,7 @@ Click on "Next: Add storage" at the bottom of the page. On the page that opens, 
 Click on "Next: Add tags" at the bottom of the screen. You may skip this step if you wish.  
 
 1. Configure the security group.  
-Click on "Next: Configure Security Group" at the bottom of the page. On the page that opens, there will already be a rule of type SSH with a port range of 22. You need to add two more rules using the "Add Rule" button. Click "Add Rule" and select "HTTP" from the drop down menu. Leave the port range at 80 but change the Source to "Anywhere." Click the "Add Rule" button again. Leave the Type as Custom TCP but change the port range to 8080 and the Source to "Anywhere." Click on "Review and Launch" at the bottom of the screen. Scroll down the page that opens and click "Launch."   
+Click on "Next: Configure Security Group" at the bottom of the page. On the page that opens, there will already be a rule of type SSH with a port range of 22. You need to add two more rules using the "Add Rule" button. Click "Add Rule" and select "HTTP" from the drop-down menu. Leave the port range at 80 but change the Source to "Anywhere." Click the "Add Rule" button again. Leave the Type as Custom TCP but change the port range to 8080 and the Source to "Anywhere." Click on "Review and Launch" at the bottom of the screen. Scroll down the page that opens and click "Launch."   
 
 1. Select the key pair.  
 In the box that opens, select the key pair you previously created from the lower drop-down menu, or, if necessary, choose "Create a new key pair" from the upper drop-down menu. A key pair is not necessary if you will use only MiGA-Web, but it is necessary to log into the instance using a terminal and to retrieve results via FTP. Check the "I acknowledge ..." box and then click on "Launch instances."  
@@ -134,7 +134,7 @@ Enter, substituting proper values as necessary:
 ssh -i ~/.ssh/MyKeyFile.pem ubuntu@18.190.158.158
 ```
 
-Enter "yes" when prompted to log into your AWS instance. You will be in user ubuntu's home directory. MiGA projects must be created in the miga-data directory. To get there simply enter:  
+Enter "yes" when prompted to log into your AWS instance. You will be in user ubuntu's home directory. To be accessible from MiGA-Web MiGA projects must be created in the miga-data directory. To get there simply enter:  
 
 ```
 cd miga-data

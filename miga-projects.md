@@ -6,9 +6,9 @@ MiGA can run 4 types of projects using 3 types of data submitted in any of 3 for
 
 * **Genome**: A genome assembled from sequencing an isolate
 * **Scgenome**: A genome assembled from sequencing a single cell \(single-cell amplified genome or **SAG**\)
-* **Popgenome**: A genome \(or bin\) assembled from sequencing a sample \(e.g. soil, water, skin\) containing multiple species \(metagenome-assembled genome or **MAG**\)
+* **Popgenome**: A genome \(or bin\) assembled from sequencing a sample \(*e.g.*, soil, water, skin\) containing multiple species \(metagenome-assembled genome or **MAG**\)
 
-Input data need not be finished genomes; they may also be contigs, scaffolds, or bins. One of the functions of MiGA is to evaluate a genome \(i.e. the input data\) for completness and quality.
+Input data need not be finished genomes; they may also be contigs, scaffolds, or bins. One of the functions of MiGA is to evaluate a genome \(*i.e.*. the input data\) for completeness and quality.
 
 Input genomes are referred to as datasets; they may be input as either reference or query datasets.
 

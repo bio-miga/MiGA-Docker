@@ -12,7 +12,7 @@ Any jobs running when the terminal was disconnected, however, will be lost. For 
 
 ### MiGA-Web is Disconnected
 
-If your browser's connection to MiGA-Web is terminated and the MiGA web server is still running, you can reconnect by re-entering ```http://<public IP address>:8080``` into your browser's URL bar. If this does not work it is likely that the MiGA web server has stopped. In this case, log into the instance using a terminal or the Session Manager and restart the server.  
+If your browser's connection to MiGA-Web is terminated and the MiGA web server is still running, you can reconnect by re-entering ```http://<public IP address>:8080``` into your browser's URL bar. If this does not work, it is likely that the MiGA web server has stopped. In this case, log into the instance using a terminal or the Session Manager and restart the server.  
 If you use the Session Manager, be sure to log into the user ubuntu account:  
 
 ```
@@ -24,23 +24,23 @@ If you use a terminal, log in the usual way:
 cd
 ssh -i .ssh/<keypair file> ubuntu@<public IP address>
 ```
-The web-server is less likely to stop if it is started in a tmux session. Begin a tmux session named web-server by entering:  
+The web server is less likely to stop if it is started in a tmux session. Begin a tmux session named web-server by entering:  
 
 ```
 tmux new -s web-server
 ```
-You may of course use a different name if you wish. A green bar will appear across the bottom of the screen inidcating that you are in a tmux session. Then enter:  
+You may of course use a different name if you wish. A green bar will appear across the bottom of the screen indicating that you are in a tmux session. Then enter:  
 
 ```
 cd /miga-web/
 export SECRET_KEY_BASE='bundle exec rake secret'  
 bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
 ```
-Exit the tmux session with Ctrl-B d. The server will conitnue to run even after you close the session manager or log out and close the terminal.  
+Exit the tmux session with Ctrl-B d. The server will continue to run even after you close the session manager or log out and close the terminal.  
 
 ## Stopping a MiGA AWS Instance
 
-In setting up the MiGA AWS instance, we configured it so that all data is written to a storage volume separate from the instance itself. We did this for two reasons: 1) so that the data can still be retrieved even if the MiGA instance is terminated, and 2) to allow the data volume to be attached to a different MiGA instance. For example, you will likely want to create a new MiGA instance after a newer MiGA AMI becomes available. Also, you might have different instance types: one with fewer vCPUs and less memory for running tutorials and another with more resources for running large jobs.  
+In setting up the MiGA AWS instance, we configured it so that all data is written to a storage volume separate from the instance itself. We did this for two reasons: 1) so that the data can still be retrieved even if the MiGA instance is terminated, and 2) to allow the data volume to be attached to a different MiGA instance. For example, you will likely want to create a new MiGA instance after a newer MiGA AMI becomes available. Also, you might have different instance types: a cheaper one with fewer vCPUs and less memory for running tutorials and another with more resources for running large jobs.  
 
 To stop your MiGA instance, log into your AWS account, go to the EC2 Dashboard and find your running instance. Connect to it  using the Session manager and enter:  
 
@@ -49,7 +49,7 @@ sudo umount /miga-web/db
 ```
 From the menu on the left side of the AWS console page, select Volume under Elastic Block Store and find the storage volume attached to your MiGA instance. Left click on the volume and choose "Detach." Wait until the detachment is complete.  
 
-Then select "Instances" (under "Instances") from the menu on the left of the screen, and find your running MiGA instance. Left click on the instance and choose first "Instance State" and then "Stop" from the drop-down menu. If instead you chose "Terminate" the MiGA instance will be deleted.  
+Then select "Instances" (under "Instances") from the menu on the left of the screen and find your running MiGA instance. Left click on the instance and choose first "Instance State" and then "Stop" from the drop-down menu. If instead you chose "Terminate" the MiGA instance will be deleted.  
 
 ## Restarting a MiGA AWS Instance 
 
@@ -87,18 +87,18 @@ sudo mount --bind db /miga-web/db
 # Move to the miga-web directory.
 cd /miga-web
 ```
-Creat a tmux session by entering:  
+Create a tmux session by entering:  
 ```
 tmux new -s web-server
 ```
-You may of course use a different name if you wish. A green bar will appear across the bottom of the screen inidcating that you are in a tmux session. Then enter:  
+You may of course use a different name if you wish. A green bar will appear across the bottom of the screen indicating that you are in a tmux session. Then enter:  
 
 ```
 cd /miga-web/
 export SECRET_KEY_BASE='bundle exec rake secret'  
 bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
 ```
-Exit the tmux session with Ctrl-B d. The server will conitnue to run after you close the session manager.  
+Exit the tmux session with Ctrl-B d. The server will continue to run after you close the session manager.  
 
 You can then access your MiGA instance by both browser (MiGA-Web) and command line interfaces, and previous projects should be available. 
 
@@ -128,13 +128,13 @@ CLI projects created in the /home/ubuntu/miga-data directory can also be accesse
 
 ## Long Running Projects
 
-MiGA-Web projects will continue to run after you close your browser. As long as you do not stop the instance, you can log back in with your browser using the same IP address. CLI projects, however, will terminate when you close your terminal or your connection to the internet is interupted. This inconvenience can be overcome by using ```tmux```. It is good pracice to give the ```tmux``` session a name. For example create a ```tmux``` session named "my_session" by entering:  
+MiGA-Web projects will continue to run after you close your browser. As long as you do not stop the instance, you can log back in with your browser using the same IP address. CLI projects, however, will terminate when you close your terminal or your connection to the internet is interrupted. This inconvenience can be overcome by using ```tmux```. It is good practice to give the ```tmux``` session a name. For example, create a ```tmux``` session named "my_session" by entering:  
 
 ```
 tmux new -s my_session
 ```
 
-A green band will appear at the bottom of your terminal indicating you are in a ```tmux``` session. Enter commands to run your project and after it has started, enter Ctrl and b, release both keys and type d. This will take you out of the ```tmux``` session and you can close your teminal, turn off your computer and go home. As long as you do not stop the instance, you can resume the ```tmux``` session by logging back in from your terminal and entering:
+A green band will appear at the bottom of your terminal indicating you are in a ```tmux``` session. Enter commands to run your project and after it has started, enter Ctrl and b, release both keys and type d. This will take you out of the ```tmux``` session and you can close your terminal, turn off your computer and go home. As long as you do not stop the instance, you can resume the ```tmux``` session by logging back in from your terminal and entering:
 
 ```
 tmux attach-session -t my_session
@@ -150,4 +150,4 @@ To configure FileZilla to access to an instance:
 - For User, enter ubuntu.  
 - For Key file, enter the path to and name of your key file. You may do this using the Browse button.  
 
-Yoiu may save this cofiguration as a new site, but remember that you will have to edit the IP address each time you re-start the instance.
+You may save this configuration as a new site, but remember that you will have to edit the IP address each time you re-start the instance.

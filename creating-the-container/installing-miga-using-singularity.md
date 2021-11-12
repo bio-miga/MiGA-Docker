@@ -3,11 +3,11 @@
 These instructions are for installing MiGA in a Singularity container from a Docker image. This overcomes several disadvantages over using a Docker container in a cluster environment, the more important of which are:
 
 * Docker containers grant superuser privileges, so it is hard to limit access to a user. Singularity runs as the user without granting superuser access.
-* The Docker API client acts through the docker daemon so that resource requests made by a submission script \(*e.g.* Slurm\) and actual resource used do not match. Singularity containers instead run as child processes, *i.e*. without a daemon, so Slurm resource requests are honored. 
+* The Docker API client acts through the docker daemon so that resource requests made by a submission script \(*e.g.* slurm\) and actual resource used do not match. Singularity containers instead run as child processes, *i.e*. without a daemon, so slurm resource requests are honored. 
 
 While these instructions are written for installing MiGA in a user's home directory on Michigan State University's HPCC, they should work on any cluster including Singularity.
 
-Log into the HPCC with your user name and password.
+Log into the HPCC with your username and password.
 
 **IMPORTANT:** Installation may not work from all nodes. Initially it worked only from dev-intel18.i, but since the HPCC upgrade was completed, I have installed MiGA from dev-intel16. If you have trouble, try a different node and let John Quensen know your experience.
 
@@ -15,10 +15,10 @@ Log into the HPCC with your user name and password.
 ssh  dev-intel18
 ```
 
-While in you home directory, create a singularity image of MiGA named MiGA using the command:
+While in your home directory, create a singularity image of MiGA named MiGA using the command:
 
 ```text
-singularity build MiGA docker://miga/miga:1.0.2.0
+singularity build MiGA docker://miga/miga:latest
 ```
 
 Once the image is successfully built, run the image shell to start MiGA by entering the command:
@@ -47,5 +47,5 @@ The two reference databases available are **TypeMat\_Lite** and **Phyla\_Lite**.
 miga get_db -n Phyla_Lite
 ```
 
-Being so much larger, **TypeMat\_Lite** takes approximately an hour to install. Thus it is more conveniently installed by submitting a job. See the section **Submitting MiGA Jobs** for instructions.
+Being so much larger, **TypeMat\_Lite** takes approximately an hour to install. Thus, it is more conveniently installed by submitting a job. See the section **Submitting MiGA Jobs** for instructions.
 

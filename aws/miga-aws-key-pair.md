@@ -12,13 +12,13 @@ You need a Linux bash shell to complete these instructions. For Linux and Mac us
 1. On the page that opens, select the Amazon Linux 2 AMI. It is likely the first listed. Leave 64-bit (x86) checked.  
 1. On the page that opens, select  the "t2.micro" instance. Then click on the blue button  "Review and Launch."  
 1. On the page that opens, scroll down and click the blue button "Launch." A box will open for you to select a key pair or create a new key pair. Leave the Key Pair type as RSA. In the space under Key pair name, enter a name for the key pair, *e.g.* MyKeyPair, and then click the button "Download Key Pair."   
-1. Open your terminal, or start git bash. When the terminal opens, you should be in your home directory. 
-1. Move the downloaded file to the hidden directory .ssh in your home directory with the command below. You may need to edit the path to the downloaded file. (And of course use the actual name of your key pair file in all following commands.) 
+1. Open your terminal or start git bash. When the terminal opens, you should be in your home directory. 
+1. Move the downloaded file to the hidden directory .ssh in your home directory with the command below. You may need to edit the path to the downloaded file. (And, of course, use the actual name of your key pair file in all following commands.) 
 
 ```
 mv ~/Downloads/MyKeyPair.pem ~/.ssh/MyKeyPair.pem
 ```
-**Note for Mac users:** The hidden directory ~/.ssh may not exist on your system, in which case you need to create it beforee issuing the above command. You can check if it exists by listing the files in your home directory with:  
+**Note for Mac users:** The hidden directory ~/.ssh may not exist on your system, in which case you need to create it before issuing the above command. You can check if it exists by listing the files in your home directory with:  
 
 ```
 cd
@@ -32,7 +32,7 @@ cd
 mkdir .ssh
 ```
 
-Also, the extention "text" may have been appended to the downloaded file name, in which case you can rename it as it is moved to .ssh with:  
+Also, the extension "text" may have been appended to the downloaded file name, in which case you can rename it as it is moved to .ssh with:  
 
 ```
 mv ~/Downloads/MyKeyPair.pem.text ~/.ssh/MyKeyPair.pem
