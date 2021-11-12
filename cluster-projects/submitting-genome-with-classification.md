@@ -1,6 +1,6 @@
 # Submit a Genome Project with Classification
 
-It is also possible to request that reference genomes be classified against a reference databae when the project is first run. To do this, create the new project and edit it to include a reference project database. Then add the reference genomes and start the daemon.
+It is also possible to request that reference genomes be classified against a reference database when the project is first run. To do this, create the new project and edit it to include a reference project database. Then add the reference genomes and start the daemon.
 
 The following script assumes that you have installed **TypeMat\_Lite** in `$HOME/.miga_db` \(section "Installing\_TypeMat\_Lite"\) and that the reference sequences for this exercise are in `$HOME/miga_genomes/misc`.
 
@@ -28,7 +28,7 @@ exit
 EOF
 ```
 
-A summary classification can be obtained with the miga command:
+A summary classification can be obtained with the MiGA command:
 
 ```text
 Singularity> miga ls -P ~/miga_class/ -m tax

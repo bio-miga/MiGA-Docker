@@ -1,6 +1,6 @@
 # Exploring Results
 
-The tutorials include how to retrieve some of the more important results for each case: comparing relationships among genomes, finding clades, and evaluating genomes for completeness and contamination. To retrieve more detailed information it is helpful to understand MiGA's directory structure. The following sub-directories are included for each project under the project directory:
+The tutorials include how to retrieve some of the more important results for each case: comparing relationships among genomes, finding clades, and evaluating genomes for completeness and contamination. To retrieve more detailed information, it is helpful to understand MiGA's directory structure. The following sub-directories are included for each project under the project directory:
 
 ```text
 .
@@ -44,9 +44,9 @@ The tutorials include how to retrieve some of the more important results for eac
 └── miga.project.json
 ```
 
-The sub-directories under data and beginning with 01 thorugh 10 correspond to MiGA's sequential steps in processing data beginning with raw paired fastq files loaded into 01.raw\_reads. Not all steps need to be done. In most of the tutorials, we submitted assembled genomes in fasta format; they were loaded into 05.assembly and processing began there. In the genome assembly exercise, we began by loading already trimmed and quality filtered data into 04.trimmed. The genome projects ended with step 09.distances. Step 10.clades was performed only for the clade project. Each of these sub-directories beginning with 01 through 10 contain results for the associated data processing step.
+The sub-directories under data and beginning with 01 through 10 correspond to MiGA's sequential steps in processing data beginning with raw paired fastq files loaded into 01.raw\_reads. Not all steps need to be done. In most of the tutorials, we submitted assembled genomes in fasta format; they were loaded into 05.assembly and processing began there. In the genome assembly exercise, we began by loading already trimmed and quality filtered data into 04.trimmed. The genome projects ended with step 09.distances. Step 10.clades was performed only for the clade project. Each of these sub-directories beginning with 01 through 10 contain results for the associated data processing step.
 
-Some of the results are in text format \(sometimes compressed\), *e.g.* tables, sequence files, gff files, nwk files. Others are in pdf format or Rdata format. The information in each file is explained in the [MiGA workflow section](https://manual.microbial-genomes.org/part5/workflow) of the MiGA manual. If you are using MiGA on a cluster, you can download the files individually using FileZilla or a similar program.
+Some of the results are in text format \(sometimes compressed\), *e.g.*, tables, sequence files, gff files, nwk files. Others are in pdf format or Rdata format. The information in each file is explained in the [MiGA workflow section](https://manual.microbial-genomes.org/part5/workflow) of the MiGA manual. If you are using MiGA on a cluster, you can download the files individually using FileZilla or a similar program.
 
 ### A Taxonomy Summary Script
 
@@ -74,7 +74,7 @@ For the miscellaneous genomes project in these tutorials, this produces:
 
 ### A genome completeness and quality script
 
-John Quensen has written a python script to summarize the completeness, contamination, and quality of each genome in a project and write it to a tab-delimited file that my be viewed as is or loaded into a spread-sheet program like Excel. It takes two arguments: the path to the MiGA project and the name of the output file. Download and run the script by entering the following commands:
+John Quensen has written a python script to summarize the completeness, contamination, and quality of each genome in a project and write it to a tab-delimited file that may be viewed as is or loaded into a spread-sheet program like Excel. It takes two arguments: the path to the MiGA project and the name of the output file. Download and run the script by entering the following commands:
 
 ```text
 wget https://github.com/jfq3/Miscellaneous-scripts/raw/master/miga_completeness.py
@@ -97,7 +97,7 @@ Completeness    Contamination   Quality Genome
 
 ### Browse the results with MiGA-Web
 
-MiGA was originally provided as a web-based program, and the results were delivered via a web browser. You can view MiGA results generated on a cluster in the same manner if you first install the Docker version of MiGA on your computer. Steps are as follows:
+MiGA was originally provided as a web-based program, and the results were delivered via a web browser. You can view MiGA results generated on a cluster in the same manner if you first install the Docker version of MiGA on your computer. Steps are as follow:
 
 1. If you have not already done so, install the [Docker Version](https://www.docker.com/products/docker-desktop) appropriate to your system \(Windows, Mac OS or Linux\).
 2. If you have not already done so, install MiGA-Web:
@@ -129,21 +129,21 @@ MiGA was originally provided as a web-based program, and the results were delive
      tar czf project_name.tar.gz .
      ```
 
-   * Using miga archive. With MiGA running on the cluster:
+   * Using MiGA archive. With MiGA running on the cluster:
 
      ```text
      cd project_directory
      miga archive -o project_name.tar.gz -P .
-     ```
+     ```  
 
-     The miga archive option has the advantage that unnecessary files are not included in the archive. Thus the archive file is smaller and the MiGA results take up less drive space on your computer.
+     The MiGA archive option has the advantage that unnecessary files are not included in the archive. Thus the archive file is smaller and the MiGA results take up less drive space on your computer.
 4. Download the compressed file to the project directory on your computer and decompress it. The installation commands above created the project directory as C:/miga-web.
 
    ```text
    tar xzf project_name.tar.gz
    ```
 
-5. Start Miga on your computer.
+5. Start MiGA on your computer.
    * Start Docker desktop.
    * Open a terminal and enter, one line at a time:
 

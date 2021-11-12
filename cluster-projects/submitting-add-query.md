@@ -1,6 +1,6 @@
 # Add a Query Sequence to a Genomes Project
 
-Added P. aereuginosa as a query genome.
+Add *P. aereuginosa* as a query genome to the previous *Pseudomonas* genomes project. It will be classified relative to the reference genomes in the project.
 
 ```text
 #!/bin/bash --login

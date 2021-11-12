@@ -2,7 +2,7 @@
 
 ## Resource Request
 
-In the submitted job examples, `cpus-per-task` was set to 12. To run jobs with more genomes in a timely fashion, the number of CPUs/cores used needs to be increased. So the first step is to decide on how many cores you want to use. It should be an even number and as large as practical, but does not need to be more than 2 times the number of genomes.
+In the submitted job examples, `cpus-per-task` was set to 12. To run jobs with more genomes in a timely fashion, the number of CPUs/cores used needs to be increased. So, the first step is to decide on how many cores you want to use. It should be an even number and as large as practical but does not need to be more than 2 times the number of genomes.
 
 MiGA does not need much memory per CPU, but sometimes run-time errors occur with large jobs. If this happens, you can restart the job from the point it failed. But to decrease the chance of it happening, increase the `memory per CPU`, to 4G for example, but make sure `mem-per-cpu` times `cpus-per-task` does not exceed the total available memory.
 

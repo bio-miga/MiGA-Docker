@@ -1,5 +1,7 @@
 # Submit a Clade Project
 
+A clade project is run using closely related genomes, *e.g.*, genomes of the same species. For this example we use 10 *Dehalococoides* genomes downloaded from NCBI.    
+
 ```text
 #!/bin/bash --login
 ########## SBATCH Lines for Resource Request ##########

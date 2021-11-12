@@ -1,4 +1,6 @@
-# Assemble a Genome from a Trimmed Fasta File
+# Submitting and Assembly Project
+
+Assemble a genome from a trimmed fasta file produced by shotgun sequenceing an isolate.
 
 ```text
 #!/bin/bash --login
@@ -6,11 +8,10 @@
 ########## SBATCH Lines for Resource Request ##########
 #SBATCH --time=4:00:00           # limit of wall time - how long the job will run
 #SBATCH --nodes=1                # number of different nodes - exact number or range
-#SBATCH --ntasks=1               # number of tasks - how many tasks (nodes) you require
-#SBATCH --cpus-per-task=12       # number of CPUs (cores) per task
+#SBATCH --ntasks=6               # number of tasks - how many tasks (nodes) you require
+#SBATCH --cpus-per-task=2       # number of CPUs (cores) per task
 #SBATCH --mem-per-cpu=2G         # memory required per allocated CPU (or core)
 #SBATCH --job-name assemble      # job name for easier identification
-#SBATCH -A colej
 
 ########## Command Lines to Run ##########
 
