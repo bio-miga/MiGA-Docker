@@ -9,9 +9,9 @@ The following script assumes that you have installed **TypeMat\_Lite** in `$HOME
 ########## SBATCH Lines for Resource Request ##########
 #SBATCH --time=04:00:00         # limit of wall clock time - how long the job will run (same as -t)
 #SBATCH --nodes=1               # number of different nodes - could be an exact number or a range of nodes (same as -N)
-#SBATCH --ntasks=1              # number of tasks - how many tasks (nodes) that you require (same as -n)
-#SBATCH --cpus-per-task=12      # number of CPUs (or cores) per task (same as -c)
-#SBATCH --mem-per-cpu=2G        # memory required per allocated CPU (or core) - amount of memory (in bytes)
+#SBATCH --ntasks=18             # number of tasks - how many tasks (nodes) that you require (same as -n)
+#SBATCH --cpus-per-task=2      # number of CPUs (or cores) per task (same as -c)
+#SBATCH --mem-per-cpu=4G        # memory required per allocated CPU (or core) - amount of memory (in bytes)
 #SBATCH --job-name class        # you can give your job a name for easier identification (same as -J)
 
 ########## Command Lines to Run ##########
@@ -20,7 +20,7 @@ mkdir ~/miga_class
 cd ~/miga_class
 
 singularity shell ~/MiGA << EOF
-miga new -P ~/miga_class -t genomes
+miga new -P . -t genomes
 miga edit -P . -m ref_project=~/.miga_db/TypeMat_Lite
 miga add -P . -t genome -i assembly ~/miga_genomes/misc/*.fasta -m run_mytaxa_scan=false,run_distances=true
 time miga daemon start -t -P . --shutdown-when-done
@@ -79,6 +79,6 @@ Times reported for this project were \(real = wall time\):
 
 | \_ | Time |
 | :--- | :--- |
-| real | 57m35.1466s |
-| user | 250m01.993s |
-| sys | 3m12.277s |
+| real | 35m 44.452s |
+| user | 307m 05.617s |
+| sys | 12m 41.245s |
