@@ -13,6 +13,7 @@ Any jobs running when the terminal was disconnected, however, will be lost. For 
 ### MiGA-Web is Disconnected
 
 If your browser's connection to MiGA-Web is terminated and the MiGA web server is still running, you can reconnect by re-entering ```http://<public IP address>:8080``` into your browser's URL bar. If this does not work, it is likely that the MiGA web server has stopped. In this case, log into the instance using a terminal or the Session Manager and restart the server.  
+
 If you use the Session Manager, be sure to log into the user ubuntu account:  
 
 ```
