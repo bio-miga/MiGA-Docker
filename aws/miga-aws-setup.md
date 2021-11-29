@@ -52,14 +52,17 @@ pwd
 # List the block devices.
 lsblk
 ```
-You should be able to distinguish the root and storage disks based on their sizes (assuming you did give them different sizes!). Also, there will be a branch under the root disk. Note the entries under the column "NAME." You need to create a file system on the storage device. In the code below, the storage device name is xvdb. Substitute xvdb with the actual name as necessary.  
+You should be able to distinguish the root and storage disks based on their sizes (assuming you did give them different sizes!). Also, there will be a branch under the root disk. Note the entries under the column "NAME." You need to create a file system on the storage device. In the code below, the storage device name is nvme1n1. Substitute nvme1n1 with the actual name as necessary.  
 
 ```
 # Format the storage device.
-sudo mkfs -t xfs /dev/xvdb
+sudo mkfs -t xfs /dev/nvme1n1
 
-# Mount miga-data on the /dev/xvdb (storage) device.
-sudo mount /dev/xvdb miga-data
+# Create the miga-data directory
+sudo mkdir miga-data
+
+# Mount miga-data on the /dev/nvme1n1 (storage) device.
+sudo mount /dev/nvme1n1 miga-data
 
 # Check that miga-data is available.
 lsblk
@@ -145,4 +148,4 @@ If you create a MiGA job at this point, the job will be killed if you close the 
 
 To save your MiGA instance, log into your AWS account and go the page displaying it. From the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions", menu choosing "Instance State", and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
 
-When you restart the MiGA instance, the server will not be running and so the instance will not be accessible via a browser. Also, any previous results will not be available until you remount the device they are on. See the next section **Using MiGA AWS** for how to address these problems.  
+When you restart the MiGA instance, the server will not be running and so the instance will not be accessible via a browser. Also, if you unmounted the storage volume before you stopped the instance, any previous results will not be available until you remount the device they are on. See the next section **Using MiGA AWS** for how to address these problems.  
