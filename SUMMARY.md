@@ -29,8 +29,8 @@
 ## Reference Databases
 
 * [Add a Reference Database (Optional)](add-a-reference-database-optional/README.md)
-  * [Add Reference Databases from the Command Line](add-a-reference-database-optional/add-reference-databases-from-the-command-line.md)
   * [Add Reference Databases using MiGA-Web](add-a-reference-database-optional/add-reference-databases-using-miga-web.md)
+  * [Add Reference Databases from the Command Line](add-a-reference-database-optional/add-reference-databases-from-the-command-line.md)
 
 ## MiGA-Web Projects
 
