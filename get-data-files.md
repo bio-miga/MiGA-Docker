@@ -1,11 +1,24 @@
 # Get Data Files
 
-Data for the exercises in this GitBook are available on GitHub at `https://github.com/jfq3/data_sets`. The bash script below downloads all of the data necessary for the exercises and puts them in a directory structure compatible with the example scripts. It also changes the extension of one of the pseudomonad genomes so that it may be set aside as a query genome for some of the exercises.
+Data for the exercises in this GitBook are available on GitHub at `https://github.com/jfq3/data_sets`. There are several ways of obtaining the data.  
+
+If you wil be running the tutorials using **MiGA-Web**, you will need to first download the data files to your computer. You can do this by going to https://github.com/jfq3/data_sets, clicking on a file name and then clicking on the download button on the right of the screen. For example,  to get the miscellaneous genomes, click on the folder Miscellaneous genomes, then on the file miscellaneous.tar.gz and then on the download button. You will need to decompress the files before you can use them. Or working from the command line, you can download the data by using the instructions below. 
+
+If you will be running the tutorials from the command line, the bash script below downloads all of the data necessary for the exercises and puts them in a directory structure compatible with the example scripts. It also changes the extension of one of the pseudomonad genomes so that it may be set aside as a query genome for some of the exercises. The easiest way to get the script and data is:  
 
 ```
-#! /bin/bash
+cd ~/miga-data
+wget https://github.com/jfq3/data_sets/raw/master/get_example_data.sh
+chmod u+x get_example_data.sh
+./get_example_data.sh
+```
 
-# Get example data
+Or you can copy the code below, paste it into your text editor, save it as get_example_data.sh and run it as above.
+
+```
+#!/bin/bash
+
+# Get example data for the MiGA tutorials
 mkdir -p $HOME/miga-data/miga_genomes
 cd $HOME/miga-data/miga_genomes
 mkdir a_capsulatum
