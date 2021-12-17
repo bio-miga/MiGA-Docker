@@ -10,7 +10,7 @@ From near the right-hand end of the menu bar at the top of the screen, select th
 From near the left-hand end of the menu bar at the top of the screen, select "Services" and then "EC2" located under the "Compute" category. On the page that opens, click "Launch instance" and select "Launch instance" from the drop-down menu that opens.   
 
 1. Choose the MiGA AMI.  
-Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima-1.1.1.1."  
+Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima-1.2.2.0."  
 
 1. Choose the instance type.  
 On the page that opens, choose an instance type. For test purposes, you may choose the free tier "t2-micro" instance. For "real work," you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
@@ -57,9 +57,6 @@ You should be able to distinguish the root and storage disks based on their size
 ```
 # Format the storage device.
 sudo mkfs -t xfs /dev/nvme1n1
-
-# Create the miga-data directory
-sudo mkdir miga-data
 
 # Mount miga-data on the /dev/nvme1n1 (storage) device.
 sudo mount /dev/nvme1n1 miga-data
