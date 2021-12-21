@@ -12,7 +12,7 @@ To save time, this tutorial uses the smaller database **Phyla_Lite**.  If you ha
 
 To classify the reference genomes in a previously created project, use the edit command with the m flag to link the project to a reference database and then start the daemon. For example, to classify the reference genomes in the pseudo project, enter the commands below \(with MiGA running, of course!\).
 
-This exercise takes approximately 90 minutes to run interactively. The same exercise is included under **Submitting MiGA Jobs** if you would rather run it that way.
+This exercise takes a little over one minute to run interactively. The same exercise is included under **Submitting MiGA Jobs** if you would rather run it that way.
 
 ```text
 cd $HOME/miga-data/pseudo
