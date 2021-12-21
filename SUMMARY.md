@@ -1,27 +1,19 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [MiGA Container Manual](README.md)
 
 ## MiGA Docker
 
 * [MiGA Docker](installing-docker/README.md)
-  * [Installing Docker for Windows](installing-docker/installing-docker-for-windows.md)
-  * [Installing Docker for Mac OS](installing-docker/installing-docker-for-mac-os.md)
-  * [Installing Docker for Linux](installing-docker/installing-docker-for-linux.md)
+  * [Installing Docker Engine for Windows](installing-docker/installing-docker-for-windows.md)
+  * [Installing Docker Engine for Mac OS](installing-docker/installing-docker-for-mac-os.md)
+  * [Installing Docker Engine for Linux](installing-docker/installing-docker-for-linux.md)
   * [Creating the MiGA Container](creating-the-container/README.md)
     * [Locally Using Docker Commands](creating-the-container/using-docker-commands.md)
     * [Installing MiGA using Singularity](creating-the-container/installing-miga-using-singularity.md)
   * [Starting & Stopping MiGA Docker](starting-miga/starting-miga.md)
 
-## MiGA AWS
-
-* [MiGA AWS](aws/miga-aws.md)
-  * [Create an AWS Account](aws/miga-aws-account.md)
-  * [Create a Key Pair](aws/miga-aws-key-pair.md)
-  * [Setup a MiGA Instance](aws/miga-aws-setup.md)
-  * [Using MiGA AWS](aws/using-miga-aws.md)
-
-## MiGA Projects
+## MiGA Docker Projects
 
 * [MiGA Projects](miga-projects.md)
 * [Get Example Data](get-data-files.md)
@@ -32,7 +24,7 @@
   * [Add Reference Databases using MiGA-Web](add-a-reference-database-optional/add-reference-databases-using-miga-web.md)
   * [Add Reference Databases from the Command Line](add-a-reference-database-optional/add-reference-databases-from-the-command-line.md)
 
-## MiGA-Web Projects
+## MiGA Docker Web Projects
 
 * [Create A Genome Project](miga-web-projects/create-a-genome-project.md)
 * [Classifying Genomes](miga-web-projects/classifying-genomes/README.md)
@@ -41,7 +33,7 @@
 * [Create a Clade Project](miga-web-projects/create-a-clade-project.md)
 * [Assemble a Genome](miga-web-projects/assemble-a-genome.md)
 
-## MiGA-CLI Projects
+## MiGA Docker-CLI Projects
 
 * [Introduction](miga-cli-projects/intro.md)
 * [Create a Genome Project](miga-cli-projects/create-a-genome-project.md)
@@ -65,3 +57,23 @@
 ## Exploring Results
 
 * [Exploring Results](exploring-results/exploring-results.md)
+
+
+## MiGA AWS
+
+* [MiGA AWS](aws/miga-aws.md)
+  * [Create an AWS Account](aws/miga-aws-account.md)
+  * [Create a Key Pair](aws/miga-aws-key-pair.md)
+  * [Create a MiGA Instance](aws/miga-aws-setup.md)
+  * [Starting & Stopping the MiGA Instance](aws/using-miga-aws.md)
+  * [Troubleshooting MiGA AWS](aws/troubelshooting.md)
+
+## MiGA-AWS CLI Projects
+
+* [Introduction](aws-projects/intro.md)
+* [Create a Genome Project](aws-cli-projects/create-a-genome-project.md)
+* [Classifying Genomes](aws-cli-projects/classify-a-genome/README.md)
+  * [Using Your Own Project](aws-cli-projects/classify-a-genome/using-your-own-project.md)
+  * [Using a Reference Database](aws-cli-projects/classify-a-genome/using-a-reference-database.md)
+* [Create a Clade Project](aws-cli-projects/create-a-clade-project.md)
+* [Assemble a Genome](aws-cli-projects/assemble-a-genome.md)
