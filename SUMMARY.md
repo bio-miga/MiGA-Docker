@@ -66,7 +66,7 @@
   * [Create a Key Pair](aws/miga-aws-key-pair.md)
   * [Create a MiGA Instance](aws/miga-aws-setup.md)
   * [Starting & Stopping the MiGA Instance](aws/using-miga-aws.md)
-  * [Troubleshooting MiGA AWS](aws/troubelshooting.md)
+  * [Troubleshooting MiGA AWS](aws/trouble-shooting.md)
 
 ## MiGA-AWS CLI Projects
 
