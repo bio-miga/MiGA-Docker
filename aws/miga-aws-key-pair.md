@@ -7,13 +7,13 @@ The following instructions will allow you to create and download a key pair and 
 You need a Linux bash shell to complete these instructions. For Linux and Mac users, the terminal provides this. Windows users have a choice of Windows PowerShell, the Ubuntu terminal if they have WSL2 and Ubuntu installed, or git bash, a lightweight tool also useful for working with (surprise!) git and that is included in Git for Windows (https://gitforwindows.org/).  
 
 1. Log into your AWS account and choose the region US East (Ohio) from the menu bar at the top of the screen. Key pairs are specific to a region, and the MiGA AMI is in the US East (Ohio) region.  
-1. Under Services, select EC2.  
-1. Click on the orange pull-down menu "Launch Instance" and select "Launch instance."  
-1. On the page that opens, select the Amazon Linux 2 AMI. It is likely the first listed. Leave 64-bit (x86) checked.  
-1. On the page that opens, select  the "t2.micro" instance. Then click on the blue button  "Review and Launch."  
-1. On the page that opens, scroll down and click the blue button "Launch." A box will open for you to select a key pair or create a new key pair. Leave the Key Pair type as RSA. In the space under Key pair name, enter a name for the key pair, *e.g.* MyKeyPair, and then click the button "Download Key Pair."   
-1. Open your terminal or start git bash. When the terminal opens, you should be in your home directory. 
-1. Move the downloaded file to the hidden directory .ssh in your home directory with the command below. You may need to edit the path to the downloaded file. (And, of course, use the actual name of your key pair file in all following commands.) 
+2. Under Services, select EC2.  
+3. Click on the orange pull-down menu "Launch Instance" and select "Launch instance."  
+4. On the page that opens, select the Amazon Linux 2 AMI. It is likely the first listed. Leave 64-bit (x86) checked.  
+5. On the page that opens, select  the "t2.micro" instance. Then click on the blue button  "Review and Launch."  
+6. On the page that opens, scroll down and click the blue button "Launch." A box will open for you to select a key pair or create a new key pair. Leave the Key Pair type as RSA. In the space under Key pair name, enter a name for the key pair, *e.g.* MyKeyPair, and then click the button "Download Key Pair."   
+7. Open your terminal or start git bash. When the terminal opens, you should be in your home directory. 
+8. Move the downloaded file to the hidden directory .ssh in your home directory with the command below. You may need to edit the path to the downloaded file. (And, of course, use the actual name of your key pair file in all following commands.) 
 
 ```
 mv ~/Downloads/MyKeyPair.pem ~/.ssh/MyKeyPair.pem
@@ -45,19 +45,19 @@ cd ~/.ssh
 chmod 400 MyKeyPair.pem
 ```
 
-9. Back in your browser, launch your instance.  
-10. Click on "Services" near the left-had end of the menu bar at the top of the screen and select EC2 on the page that opens.  
-11. On the page that opens, select "Instances (running)." Copy the public IP address. You may copy it to your clipboard by hovering just to the right of it.  
-12. To test that you can connect to your instance, go back to your terminal and enter:  
+10. Back in your browser, launch your instance.  
+11. Click on "Services" near the left-had end of the menu bar at the top of the screen and select EC2 on the page that opens.  
+12. On the page that opens, select "Instances (running)." Copy the public IP address. You may copy it to your clipboard by hovering just to the right of it.  
+13. To test that you can connect to your instance, go back to your terminal and enter:  
 
 ```
 ssh -i ~/.ssh/MyKeyPair.pem ec2-user@the_ip_address
 ```
-13. Enter "yes" to continue. After a moment, the terminal prompt should change to something like `[ec2-user@ip-172-31-4-137 ~]$` indicating that you are logged into your Amazon instance.
+14. Enter "yes" to continue. After a moment, the terminal prompt should change to something like `[ec2-user@ip-172-31-4-137 ~]$` indicating that you are logged into your Amazon instance.
 
-14. Disconnect by entering:  
+15. Disconnect by entering:  
 
 ```
 exit
 ```
-15. Go back to the web page displaying your instance and select it if necessary. Click on the drop-down menu button "Actions," choose "Instance State," and then select "Terminate." A box will open, asking you to confirm. Click on the blue button, "Yes, Terminate."
+16. Go back to the web page displaying your instance and select it if necessary. Click on the drop-down menu button "Actions," choose "Instance State," and then select "Terminate." A box will open, asking you to confirm. Click on the blue button, "Yes, Terminate."
