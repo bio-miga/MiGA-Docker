@@ -150,32 +150,3 @@ The MiGA-Web Welcome page will open. Click on the "Create user" button and creat
 Go to the Admin console by clicking on the down arrow next to the green globe in the upper right corner and choosing "Admin console." Scroll down the page that opens and click on "Download databases."  Download Phyla\_Lite first; it will take only a few seconds. Then download TypeMat\_Lite. It will take approcimately 20 miniutes to download and install. Even if you close the browser at this point, the database installation should continue.  
 
 Installation of MiGA-AWS is complete. See the next section for how to stop and restart the instance. (You do not want to pay for it when you are ot using it!) Then run the tutorials that follow to gain experience using MiGA-AWS. For the command line version there are some important differences from the Docker version of MiGA.  
-
-
-# Note to self: The following should be deleted from this page.
-15. Install the reference databases.  
-Log into MiGA-CLI Using a Terminal
-
-Alternatively, open your Mac, Ubuntu or git bash terminal. Assuming the following:  
-- ~/.ssh is the path to your key file
-- MyKeyPair.pem is the name of your key file
-- 18.190.158.158 is the public IP address of your instance
- 
-Enter, substituting proper values as necessary:
-
-```
-ssh -i ~/.ssh/MyKeyFile.pem ubuntu@18.190.158.158
-```
-
-Enter "yes" when prompted to log into your AWS instance. You will be in user ubuntu's home directory. To be accessible from MiGA-Web MiGA projects must be created in the miga-data directory. To get there simply enter:  
-
-```
-cd miga-data
-```
-If you create a MiGA job at this point, the job will be killed if you close the terminal. This can be avoided by first creating a ```tmux``` session and running the job in that session. In that case, you may exit the ```tmux``` session, close the terminal, and the job will continue running. See the **MiGA-CLI Project** section for details on how to do this.  
-
-## Saving and Restarting the MiGA Instance
-
-To save your MiGA instance, log into your AWS account and go the page displaying it. From the "Actions" menu choose "Instance State" and then "Stop." Then the next time you log into your AWS account you may restart it by choosing it and from the "Actions", menu choosing "Instance State", and then "Start." It will be assigned a new public IP address when you do this, so be sure to note it. If you choose "Terminate" instead of "Stop" the instance will be deleted and you will not be able to return to it.  
-
-When you restart the MiGA instance, the server will not be running and so the instance will not be accessible via a browser. Also, if you unmounted the storage volume before you stopped the instance, any previous results will not be available until you remount the device they are on. See the next section **Using MiGA AWS** for how to address these problems.  
