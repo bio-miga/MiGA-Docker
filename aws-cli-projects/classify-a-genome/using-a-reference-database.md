@@ -16,7 +16,7 @@ This exercise takes a little over one minute to run interactively. The same exer
 
 ```text
 cd $HOME/miga-data/pseudo
-miga edit -P . -m ref_project=$HOME/.miga_db/Phyla_Lite
+miga edit -P . -m ref_project=$HOME/miga-data/Phyla_Lite
 miga daemon start -P . --shutdown_when_done  
 ```
 
@@ -106,7 +106,7 @@ mkdir $HOME/miga-data/pseudo_new
 cd  $HOME/miga-data/pseudo_new
 miga new -p . -t genomes
 miga add -P . -t genome -i assembly $HOME/miga-data/miga_genomes/pseudo/*.fasta -m run_mytaxa_scan=false,run_distances=true
-miga edit -P . -m ref_project=$HOME/.miga_db/TypeMat_Lite
+miga edit -P . -m ref_project=$HOME/miga-data/TypeMat_Lite
 miga daemon start -P . --shutdown_when_done
 ```
 
