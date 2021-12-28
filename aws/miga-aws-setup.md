@@ -11,7 +11,7 @@ From near the right-hand end of the menu bar at the top of the screen, select th
 From near the left-hand end of the menu bar at the top of the screen, select "Services" and then "EC2" located under the "Compute" category. On the page that opens, click "Launch instance" and select "Launch instance" from the drop-down menu that opens.   
 
 1. Choose the MiGA AMI.  
-Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima-1.2.2.0."  
+Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima1.2.2-Dec21."  
 
 1. Choose the instance type.  
 On the page that opens, choose an instance type. For test purposes, you may choose the free tier "t2-micro" instance. For the tutorials, we suggest shoosing and instance with 8 vCPUs and 32 Gb RAMM, *e.g.* t3.2xlarge for $0.3328 per hour. For "real work," you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
@@ -149,7 +149,7 @@ The MiGA-Web Welcome page will open. Click on the "Create user" button and creat
 
 Go to the Admin console by clicking on the down arrow next to the green globe in the upper right corner and choosing "Admin console." Scroll down the page that opens and click on "Download databases."  Download Phyla\_Lite first; it will take only a few seconds. Then download TypeMat\_Lite. It will take approcimately 20 miniutes to download and install. Even if you close the browser at this point, the database installation should continue.  
 
-Installation of MiGA-AWS is complete. See the next sectio for how to stop and restart the instance. (You do not want to pay for it when you are ot using it!) Then run the tutorials that followe to gain experience using MiGA-AWS. For the command line version there are some important differences from the Docker version of MiGA.  
+Installation of MiGA-AWS is complete. See the next section for how to stop and restart the instance. (You do not want to pay for it when you are ot using it!) Then run the tutorials that follow to gain experience using MiGA-AWS. For the command line version there are some important differences from the Docker version of MiGA.  
 
 
 # Note to self: The following should be deleted from this page.
