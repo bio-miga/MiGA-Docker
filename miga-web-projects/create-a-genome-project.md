@@ -24,7 +24,7 @@ To monitor the progress of your project, click on **Projects** in the title bar,
 
 As the processing for each genome completes, you can get information about it. Click on **Reference dataset** and then on one of the genomes that has been processed.
 
-Under **Ribosomal RNA**, **Feature locations** you will find the position within the genome of each 16S rRNA gene sequence. Clicking on **Classify with RDP** classifies the 16S rRNA gene sequences using the RDP database. \(This requires an active internet connection.\)
+Under **Ribosomal RNA**, **Feature locations** you will find the position within the genome of each 16S rRNA gene sequence. Clicking on **Classify with RDP** classifies the 16S rRNA gene sequences using the RDP database.
 
 Clicking on **Quality**, **Full report** gives the number of essential genes found, which have multiple copies, and a list of the missing essential genes. **Completeness** is the percentage of essential genes found in the genome.
 
