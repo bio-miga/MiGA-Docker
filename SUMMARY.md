@@ -71,7 +71,16 @@
 ## MiGA-AWS CLI Projects
 
 * [Introduction](aws-projects/intro.md)
-* [Get Example Data](get-data-files.md)
+* [Get Example Data]Hi  John, 
+ I talked to Dr. Tiedje and came up with a start at three main hypothesis/questions for the loop sequencing. 
+1.	how do Mitchell's soil extractions vs. my plate wash DNA compare at the same depths ? 
+a.	 I would hypothesize that Mitchell's DNA would have more dominant, novel phyla that often don't grow well on plating media while my DNA would show more selective phyla. 
+2.	how do different carbon sources effect the diversity bacteria found? 
+a.	compare all different carbon sources, maybe some, such as chitin, only select for one or two bacteria while DNBA may select for many more 
+b.	possibly comparing the sequencing results to the colony morphology seen on the plates (we have many old pictures). if some samples have only a few bacteria maybe we can visibly distinct the different colonies. 
+3.	how does the surface, paleosol layer and everything else in-between compare? 
+a.	I would hypothesize that the paleosol layers would show distinct differences as they are from a different period and the surface soil would show more diversity. 
+
 * [Create a Genome Project](aws-cli-projects/create-a-genome-project.md)
 * [Classifying Genomes](aws-cli-projects/classify-a-genome/README.md)
   * [Using Your Own Project](aws-cli-projects/classify-a-genome/using-your-own-project.md)
