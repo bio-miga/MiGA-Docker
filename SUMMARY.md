@@ -70,7 +70,7 @@
 
 ## MiGA-AWS CLI Projects
 
-* [Introduction](aws-projects/intro.md)
+* [Introduction](aws-cli-projects/intro.md)
 * [Get Example Data](get-data-files.md)
 * [Create a Genome Project](aws-cli-projects/create-a-genome-project.md)
 * [Classifying Genomes](aws-cli-projects/classify-a-genome/README.md)
