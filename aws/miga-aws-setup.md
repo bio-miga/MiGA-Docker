@@ -1,6 +1,6 @@
-## Setting up MiGA on AWS
+## Create a MiGA Instance
 
-First time users should take the following steps. The procedures are slightly different if you are relaunching a stopped instance (see the section on **Using MiGA AWS**).
+The following steps are for creating a new MiGA instance on AWS. The procedures are slightly different if you are relaunching a stopped instance (see the section on **Using MiGA AWS**).
 
 1. Log into your AWS account.  
 Open your browser and log into your AWS account.  
@@ -11,7 +11,7 @@ From near the right-hand end of the menu bar at the top of the screen, select th
 From near the left-hand end of the menu bar at the top of the screen, select "Services" and then "EC2" located under the "Compute" category. On the page that opens, click "Launch instance" and select "Launch instance" from the drop-down menu that opens.   
 
 1. Choose the MiGA AMI.  
-Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima1.2.2-Dec21."  
+Click on "My AMIs" on the left-hand side of the screen and then select "MiGA-Prima1.2.2.3."  **Note: This will change when a community AMI is published.**
 
 1. Choose the instance type.  
 On the page that opens, choose an instance type. For test purposes, you may choose the free tier "t2-micro" instance. For the tutorials, we suggest shoosing and instance with 8 vCPUs and 32 Gb RAMM, *e.g.* t3.2xlarge for $0.3328 per hour. For "real work," you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
@@ -21,6 +21,7 @@ After clicking on the instance type you want to use, click on "Next: Configure I
 
 1. Add EBS storage.   
 Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 50 Gb. (This may seem unnecessarily large for the root volume, but is the minimum size required to perform installation of the TypeMat\_Lite database.) Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but we suggest at least 100 Gb. If you add the Phyla\_Lite and TypeMat\_Lite databases, they will take up nearly 25 Gb, and you will need more room for your projects. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will not be automatically deleted if you terminate the instance. When you are sure you are finished with a storage volume, you can manually delete it.   
+**Note: Recommended volume sizes may change, especially for the root volume.**
 
 1. Add tags.  
 Click on "Next: Add tags" at the bottom of the screen. You may skip this step if you wish.  
@@ -35,7 +36,7 @@ In the box that opens, select the key pair you previously created from the lower
 On the page that opens, scroll to the bottom and click on "View Instances."  Look for your instance on the next page that opens. Under "Instance State" it will likely say "pending." Under "Status Checks" it will say "Initializing". Under "Name", enter a meaningful name so that you can recognize the instance later. Wait until "Running" is displayed under "Instance State" and "2/2 checks" is displayed under "Status Checks." Scroll down the page until you can see the public IP address. Write down this address. You will need it to log into the instance.
 
 1. Connect to the instance via a terminal.  
-Open a terminal on your computer (the terminal app for Mac OS users, git bash or PowerShell for Windows users) and log into the instance with the followwing command, replacing<key pair.pem> with the name of your key pair file in directroy ~/.ssh and <ip address> with the public IP address you just wrote down.
+Open a terminal on your computer (the terminal app for Mac OS users, git bash or PowerShell for Windows users) and log into the instance with the following command, replacing<key pair.pem> with the name of your key pair file in directroy ~/.ssh and <ip address> with the public IP address you just wrote down.
 
 ```
 ssh -i .ssh/<key pair> ubuntu@<ip address>
@@ -44,6 +45,7 @@ Answer the prompt with "Yes" to connect.
 
 12. Get the name of the storage volume.  
 Enter the following into the session terminal. The lines beginning with # need not be entered. They are comments explaining the purpose of the following line. You may copy and paste the lines into the terminal all at once.  
+**HINT: If you are reading these instructions from the GitBook, you can copy the commands to your clipboard by clicking on the copy icon in the upper right corner of the code block, and then paste the commands into your terminal. This assumes, of course, that you do not need to make any changes to the code.**
 
 ```
 # Log in as user ubuntu.
@@ -103,7 +105,7 @@ cd miga-data/
 sudo mount --bind db /miga-web/db 
 ```
 14. Configure MiGA  
-To begin configuring MiGA, enter the folloiwng into the terminal:  
+To begin configuring MiGA, enter the following into the terminal:  
 
 ```
 cd
@@ -132,15 +134,16 @@ A green band will appear across the bottom of the session terminal window indica
 cd /miga-web
 
 # Start the server.
-export SECRET_KEY_BASE='bundle exec rake secret'  
-bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
+export SECRET_KEY_BASE='bundle exec rake secret'
+export RAILS_SERVE_STATIC_FILES=true
+bundle exec rails server -e production -b 0.0.0.0 -p 8080 -u Puma
 ```
 Wait a few seconds until messages stop scrolling down the screen. Then exit the tmux session by entering ```Ctrl-B d``` by pressing the Ctrl key, then the b key, releasing both, and pressing the d key. The green band will disappear from the bottom of the screen indicating that you are no longer in the tmux session, but the web server will continue to run in the background.  
 
 You may now close the session terminal and log out of your AWS account (but make sure you have written down the public IP address first!).  
 
-15. Install the refernece databases.    
-For full functionality, the reference databases need to be installed using the MiGA-Web interface. Open your browser and enter the folloiwng into the address bar where \<ip address\> is the public IP address for the instance.  
+15. Install the reference databases.    
+For full functionality, the reference databases need to be installed using the MiGA-Web interface. Open your browser and enter the following into the address bar where \<ip address\> is the public IP address for the instance.  
 
 ```
 http://<ip adddress>:8080
