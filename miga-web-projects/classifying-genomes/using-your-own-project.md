@@ -6,7 +6,7 @@ Open MiGA-Web in your browser and log in if necessary. Click on the white **Proj
 
 You are taken to a page where you can upload query datasets. Click on the blue **Upload query datasets** button. On the next page, select the **Type of dataset** \(**Genome** for this exercise\), the **Type of input** \(**Assembly in Fasta format** for this exercise\), and click on **Choose Files**. Browse to and select your query genome, then scroll to the bottom of the page and click on **Upload new dataset**.
 
-Start the daemon by clicking on the green website icon in the upper right, select **Admin console**, **Control and review daemons**, and turn on the daemon for your project.
+There is a special daemons controller that you have to turn on to process query genomes. To do so, click on the green website icon in the upper right, select **Admin console**, **Control and review daemons**. At the top of the page under **Daemons controller**, click on the switch next to, "Toggle to turn the contoller on or off." If it is blue, with the white cirlce to the right, the daemons controller is on.  
 
 Return to your project page and monitor progress as you did for the genome exercise.
 
