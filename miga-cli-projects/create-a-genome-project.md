@@ -30,7 +30,7 @@ miga add -P . -t genome -i assembly $HOME/miga-data/miga_genomes/pseudo/*.fasta 
 Launch the daemon to start MiGA processing your data:
 
 ```
-miga daemon start -P . --shutdowon_when_done
+miga daemon start -P . --shutdown_when_done
 ```
 
 After the job starts, you can display the information about the job:
