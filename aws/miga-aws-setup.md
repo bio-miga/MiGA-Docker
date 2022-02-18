@@ -41,7 +41,7 @@ Open a terminal on your computer (the terminal app for Mac OS users, git bash or
 ```
 ssh -i .ssh/<key pair> ubuntu@<ip address>
 ```
-Answer the prompt with "Yes" to connect.
+Answer the prompt with "yes" to connect.
 
 12. Get the name of the storage volume.  
 Enter the following into the session terminal. The lines beginning with # need not be entered. They are comments explaining the purpose of the following line. You may copy and paste the lines into the terminal all at once.  
@@ -96,13 +96,13 @@ sudo chmod 777 miga-data
 mkdir miga-data/db
 
 # Copy the database files from miga-web/db.
-cp -r /miga-web/db/* miga-data/db/
+cp -r miga-web/db/* miga-data/db/
 
 # Move to the miga-data directory.
 cd miga-data/
 
 # Bind the two database directories.
-sudo mount --bind db /miga-web/db 
+sudo mount --bind db ../miga-web/db 
 ```
 14. Configure MiGA  
 To begin configuring MiGA, enter the following into the terminal:  
@@ -131,7 +131,8 @@ A green band will appear across the bottom of the session terminal window indica
 
 ```
 # Move to the miga-web directory.
-cd /miga-web
+cd
+cd miga-web
 
 # Start the server.
 export SECRET_KEY_BASE='bundle exec rake secret'
