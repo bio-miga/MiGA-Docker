@@ -1,38 +1,32 @@
 # Assemble a Genome
 
-Log into the HPCC with your username and password.
+If necessary, log into the HPCC with your username and password. Start MiGA:
 
-Create a directory for your reads and put them in it. For this exercise we will start with trimmed fasta reads.
-
-```text
-cd
-mkdir miga_cap
-cd miga_cap
-wget https://github.com/jfq3/data_sets/raw/master/A_capsulatum_reads.fasta.gz
-gzip -d A_capsulatum_reads.fasta.gz
 ```
-
-While MiGA usually takes files compressed with gzip, this particular file cannot be read by MiGA and therefore must be decompressed.
-
-Make a directory for your MiGA assembly project.
-
-```text
 cd
-mkdir test_assembly
-```
-
-Still from your home directory, start MiGA, create a new project named `test_assembly`, and move into the project directory:
-
-```text
 singularity shell MiGA
-miga new -P ~/test_assembly/ -t genomes
-cd test_assembly
+```
+
+
+Create a directory for your project and move into it, and initialize a genome project:
+
+```text
+cd
+mkdir $HOME/miga-data/miga_cap
+cd $HOME/miga-data/miga_cap
+miga new -P . -t genomes
 ```
 
 Add your data set to the MiGA project. In doing this, turn off mytaxa scan and distances, as in the command below. MyTaxa is not installed in this version of MiGA, and because this project contains only one genome we cannot calculate distances. Here the -i flag specifies that the dataset being uploaded consists of trimmed reads.
 
 ```text
-miga add -P . -t genome -i trimmed_reads_single  ~/miga_cap/A_capsulatum_reads.fasta -m run_mytaxa_scan=false,run_distances=false
+miga add -P . -t genome -i trimmed_reads_single  $HOME/miga-data/miga_genomes/a_capsulatum/A_capsulatum_reads.fasta -m run_mytaxa_scan=false,run_distances=false
+
+
+
+miga-data/miga_genomes/a_capsulatum/
+A_capsulatum_reads.fasta
+
 ```
 
 For the input flag \(-i\), supported inputs include:
