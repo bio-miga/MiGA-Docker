@@ -1,65 +1,87 @@
 
 ## Stopping a MiGA AWS Instance
 
-In setting up the MiGA AWS instance, we configured it so that all data is written to a storage volume separate from the instance itself. We did this for two reasons: 1) so that the data can still be retrieved even if the MiGA instance is terminated, and 2) to allow the data volume to be attached to a different MiGA instance. For example, you will likely want to create a new MiGA instance after a newer MiGA AMI becomes available. Also, you might have different instance types: a cheaper one with fewer vCPUs and less memory for running tutorials and another with more resources for running large jobs.  
+In setting up the MiGA AWS instance, we configured it so that all data is written to a storage volume separate from the instance itself. We did this for two reasons: 1) so that the data can still be retrieved even if the MiGA instance is terminated, and 2) to allow the data volume to be attached to a different MiGA instance. For example, you will likely want to create a new MiGA instance after a newer MiGA AMI becomes available. Also, you might have different instance types: a cheaper one with fewer vCPUs and less memory for running tutorials and browsing results, and another with more resources for running large jobs.  
 
-To stop your MiGA instance, log into your AWS account, go to the EC2 Dashboard and find your running instance. Connect to it  using the Session manager and enter:  
+There are two ways of stopping an instance, depending on whether or not you want to detach the storage volume.  
 
-```
-sudo umount /miga-web/db
-```
-From the menu on the left side of the AWS console page, select Volume under Elastic Block Store and find the storage volume attached to your MiGA instance. Left click on the volume and choose "Detach." Wait until the detachment is complete.  
+### Stopping WITHOUT Detaching the Storage Volume
 
-Then select "Instances" (under "Instances") from the menu on the left of the screen and find your running MiGA instance. Left click on the instance and choose first "Instance State" and then "Stop" from the drop-down menu. If instead you chose "Terminate" the MiGA instance will be deleted.  
+This method is appropriate if you will be returning to the same instance and storaqge volume shortly. Simply log into your AWS account, go to the EC2 Dashboard and find your running instance. Right click on it, choose Instance State, and then "Stop." **CAUTION**: If you instead choose "Terminate" the instance will be deleted. If you did not leave the box unchecked when you attached the storage volume, it will also be deleted.  
 
-## Restarting a MiGA AWS Instance 
+### Restarting if Storage Volume Was Not Detached
 
-Log into the AWS console, go to the EC2 Dashboard, and choose Instances. On the page that opens, choose your MiGA instance and click on "Actions" at the top of the screen. From the drop-down menu, choose "Instance State" and then "Start." Write down the public IP address displayed in the lower part of the screen. Note the name and instance id of your instance. Wait until the entry for the instance under "Status Checks" is "2/2 checks."  
+If you did not detach the storage volume when you stopped the instance, log into your AWS account, go to the EC2 Dashboard and find your instance. Right click on it, choose "Instance State," and then "Start." Confirm by clicking "Yes, Start." Wait until "2/2 checks" appears in the column "Status Checks." A new public IP address will be assigned to the instance. Open a teminal and connect to the instance using this new IP address and check the name of the storage volume with the command `lsblk`.   
 
-Next you need to reattach the data storage volume. Under "Elastic Block Store" on the left of the screen, choose "Volumes" and find the storage volume you want to attach to your instance. Left click on the instance and choose "Attach Volume". In the box that opens, click in the field next to "Instance," select your running instance, and then click on the blue "Attach" button in the bottom of the box. Wait until the operation is complete (the spinning wheel will disappear).
-
-Go back to your instance, choose it, and connect to it using the Session Manager. Enter the following commands:  
 
 ```
-# Log in as user ubuntu
-sudo su - ubuntu
- 
-# Check that you are in the /home/ubuntu directory.
-pwd
-
-# List the block devices.
+ssh -i .ssh/<key pair> ubuntu@<ip address>
 lsblk
 ```
-Note the name of your storage device. You need to mount the miga-data directory on this device. In the code below, the device name is xvdb. Substitute xvdb with the actual name as necessary.  
+
+As you did when you created the instance, you should get something like:
 
 ```
-# Mount miga-data on the /dev/xvdb device.
-sudo mount /dev/xvdb miga-data
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    0   25M  1 loop /snap/amazon-ssm-agent/4046
+loop1         7:1    0 55.5M  1 loop /snap/core18/2246
+loop2         7:2    0 61.9M  1 loop /snap/core20/1242
+loop3         7:3    0 61.9M  1 loop /snap/core20/1270
+loop4         7:4    0 55.5M  1 loop /snap/core18/2253
+loop5         7:5    0 67.3M  1 loop /snap/lxd/21545
+loop6         7:6    0 67.2M  1 loop /snap/lxd/21835
+loop7         7:7    0 32.5M  1 loop /snap/snapd/13640
+loop8         7:8    0 43.3M  1 loop /snap/snapd/14295
+nvme1n1     259:0    0  100G  0 disk
+nvme0n1     259:1    0   50G  0 disk
+└─nvme0n1p1 259:2    0   50G  0 part /
+```
 
-# Check that miga-data is available.
-lsblk
+You need to remount the storage volume, `nvme1n1` in this example. And then bind mount the db directories in `miga-web  and    miga-data`.  
 
-# Move to the /home/ubuntu/miga-data directory.
-cd /home/ubuntu/miga-data
+```
+# Mount miga-data on the /dev/nvme1n1 device.
+sudo mount /dev/nvme1n1 miga-data
 
 # Bind the two database directories.
-sudo mount --bind db /miga-web/db 
-
-# Move to the miga-web directory.
-cd /miga-web
+cd miga-data
+sudo mount --bind db ../miga-web/db 
 ```
-Create a tmux session by entering:  
+
+And then start the web-server in a tmux session:  
+
 ```
 tmux new -s web-server
+cd /miga-web/
+export SECRET_KEY_BASE='bundle exec rake secret'
+export RAILS_SERVE_STATIC_FILES=true
+bundle exec rails server -e production -b 0.0.0.0 -p 8080 -u Puma
 ```
-You may of course use a different name if you wish. A green bar will appear across the bottom of the screen indicating that you are in a tmux session. Then enter:  
+
+Exit the tmux session by entering Ctrl-B d. You can then access the MiGA instance by both browser and command line interfaces.   
+
+
+## Detaching the Storage Volume and Stopping the Instance
+
+While connected to the MiGA instance via a terminal, enter:  
 
 ```
-cd /miga-web/
-export SECRET_KEY_BASE='bundle exec rake secret'  
-bundle exec rails server -e production -b 0.0.0.0 -p 8080 Puma
+cd
+sudo umount miga-web/db
 ```
-Exit the tmux session with Ctrl-B d. The server will continue to run after you close the session manager.  
+If necessary, log into your AWS account. From the menu on the left side of the AWS console page, select Volume under Elastic Block Store and find the storage volume attached to your MiGA instance. Right click on the volume and choose "Detach." Wait until the detachment is complete.  
+
+Then select "Instances" (under "Instances") from the menu on the left of the screen and find your running MiGA instance. Right click on the instance and choose first "Instance State" and then "Stop" from the drop-down menu. If instead you chose "Terminate" the MiGA instance will be deleted.  
+
+## (Re-)Attaching the Storage Volume and Starting a MiGA AWS Instance 
+
+You can reattach the storage volume to the same instance from which it was detached, or you can attach it to a new or different instance provided the instance is in the same sub-region as the storage volume. The sub-region is indicated by the letter appended to the availability zone. To check that the regions match, log into the AWS console and look under the Availability Zone column in the list of instances and the list of EBS volumes. 
+
+Go to the EC2 Dashboard and choose Instances. On the page that opens, choose your MiGA instance and click on "Actions" at the top of the screen. From the drop-down menu, choose "Instance State" and then "Start." Write down the public IP address displayed in the lower part of the screen. Note the name and instance id of your instance. Wait until the entry for the instance under "Status Checks" is "2/2 checks."  
+
+Next you need to attach or reattach the data storage volume. Under "Elastic Block Store" on the left of the screen, choose "Volumes" and find the storage volume you want to attach to your instance. Left click on the instance and choose "Attach Volume". In the box that opens, click in the field next to "Instance," select your running instance, and then click on the blue "Attach" button in the bottom of the box. Wait until the operation is complete (the spinning wheel will disappear).  
+
+The rest of the procedure is the same as above: log into the instance from terminal, mount the storage volume, bind mount the two db directories, and start the server.  
 
 You can then access your MiGA instance by both browser (MiGA-Web) and command line interfaces, and previous projects should be available. 
 
