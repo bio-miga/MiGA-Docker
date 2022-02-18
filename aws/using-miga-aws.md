@@ -16,6 +16,8 @@ If you did not detach the storage volume when you stopped the instance, log into
 
 ```
 ssh -i .ssh/<key pair> ubuntu@<ip address>
+cd
+sudo su - ubuntu
 lsblk
 ```
 
@@ -45,14 +47,15 @@ sudo mount /dev/nvme1n1 miga-data
 
 # Bind the two database directories.
 cd miga-data
-sudo mount --bind db ../miga-web/db 
+sudo mount --bind db ../miga-web/db
 ```
 
 And then start the web-server in a tmux session:  
 
 ```
 tmux new -s web-server
-cd /miga-web/
+cd
+cd miga-web/
 export SECRET_KEY_BASE='bundle exec rake secret'
 export RAILS_SERVE_STATIC_FILES=true
 bundle exec rails server -e production -b 0.0.0.0 -p 8080 -u Puma
@@ -81,7 +84,7 @@ Go to the EC2 Dashboard and choose Instances. On the page that opens, choose you
 
 Next you need to attach or reattach the data storage volume. Under "Elastic Block Store" on the left of the screen, choose "Volumes" and find the storage volume you want to attach to your instance. Left click on the instance and choose "Attach Volume". In the box that opens, click in the field next to "Instance," select your running instance, and then click on the blue "Attach" button in the bottom of the box. Wait until the operation is complete (the spinning wheel will disappear).  
 
-The rest of the procedure is the same as above: log into the instance from terminal, mount the storage volume, bind mount the two db directories, and start the server.  
+The rest of the procedure is the same as above: log into the instance from a terminal, mount the storage volume, bind mount the two db directories, and start the server.  
 
 You can then access your MiGA instance by both browser (MiGA-Web) and command line interfaces, and previous projects should be available. 
 
@@ -95,7 +98,7 @@ Open a Mac, Ubuntu or git bash terminal and log into the MiGA instance as instru
 
 ```
 cd
-ssh -i ~/.ssh/MyKeyPair.pem ubuntu@ip_address
+ssh -i ~/.ssh/<key_pair_file> ubuntu@<ip_address>
 ```
 
 Command line (CLI) projects need to be created in the /home/ubuntu/miga-data directory. To go there after logging into your instance, enter:
@@ -126,7 +129,7 @@ tmux attach-session -t my_session
 ## Accessing Results
 See the **Exploring Results** section for general ways to get results. Some results may be downloaded using the web interface, but in some cases *e.g.* downloading an archive of a project, you may wish to use an FTP client such as FileZilla.  With the instance running, you can log in using FileZilla and download files.  
 
-To configure FileZilla to access to an instance:  
+To configure FileZilla to access an instance:  
 - For protocol, select SFTP - SSH File Transfer Protocol.  
 - For host, enter the IP address.  
 - For Logon Type, select Key file.  
