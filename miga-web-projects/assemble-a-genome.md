@@ -6,13 +6,13 @@ For this exercise we will submit trimmed fasta reads from an isolate. Actually, 
 
 Download the data set **A\_capsulatum\_reads.fasta.gz** from [https://github.com/jfq3/data\_sets](https://github.com/jfq3/data_sets) and decompress it \(you can do this with Win-Zip\). While MiGA-Web usually understands gzip compression, for some unknown reason this file cannot be used unless it is decompressed first.
 
-Start Docker, MiGA-Web, and log into your MiGA-Web account. Click on **Create new project**.
+Start MiGA-Web and log into your account. Click on **Create new project**.
 
 Enter a name for your project in the **Path** box. You do not need to change or enter anything else on the page. Scroll to the bottom of the page and click on **Create new MiGA project**.
 
 Upload the file as a reference dataset of type **Trimmed reads in Fasta format** and **Forward unpaired reads**. You must also enter a dataset name in the **Name** box. Remember to scroll to the bottom of the page and click on the upload button.
 
-Turn on the daemon for the project.
+To start processing, you must turn on the daemon. Click on the green website icon in the upper right, select **Admin console**, **Control and review daemons**, and turn on the daemon for your project.  
 
 If you return to the project page, the **Project Progress** bar will not indicate any progress during assembly, nor will any datasets be shown as running on the left side of the page. The only way to monitor assembly progress is to watch files appear in your results directory under the sub-directory name\_of\_your\_project/data/05.assembly/dataset\_name. Several intermediate files will appear, but when the assembly is complete there will be only three left including contig.fa. Processing and evaluation of the assembly will take a few minutes longer.
 
