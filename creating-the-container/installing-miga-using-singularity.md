@@ -33,14 +33,14 @@ MiGA must be initialized the first time the image is run using the command:
 miga init
 ```
 
-This comammnd configures several optional features and system parameters. Most can be left at their default values (by pressng "Enter" at the end of a prompt), but some need to be manually configured. 
+This command configures several optional features and system parameters. Most can be left at their default values (by pressng "Enter" at the end of a prompt), but some need to be manually configured. 
 
-When asked if you want to use MyTaxa, respond "no." MyTaxa is not included in this version of MiGA becasue it would make the Docker image to large.  
+When asked if you want to use MyTaxa, respond "no." MyTaxa is not included in this version of MiGA becasue it would make the Docker image too large.  
 
-When asked if you want to preserve the daemon template, responod "no." 
-You will then be asked fro the type of daemon, to which you should respond "bash."  
+When asked if you want to preserve the daemon template, respond "no." 
+You will then be asked for the type of daemon, to which you should respond "bash."  
 
-When asked "How many jobs can I launch at once?" consider increasing the default value of 6. This should be on-half of the number of cores you intend to use, but it does not need to be large than the number of genomes you intend to process. If you set this to 10 (the maximum number of genomes in the tutorials), the tutorials will finish quicker. Since we will allow 2 CPUs per job, this will require 20 cores when running a job. This value is typically set to 32 jobs, requring 64 cores, when procesing larger "real world" jobs.  
+When asked "How many jobs can I launch at once?" consider increasing the default value of 6. This should be one-half of the number of cores you intend to use, but it does not need to be greater than the number of genomes you intend to process. If you set this to 10 (the maximum number of genomes in the tutorials), the tutorials will finish quicker. Since we will allow 2 CPUs per job, this will require 20 cores when running a job. This value is typically set to 32 jobs, requiring 64 cores, when processing larger "real world" jobs. It can be changed without running miga init by editing the hidden file .miga_daemon.json in your home directory.  
 
 MiGA is now installed in your home directory. Exit Singularity and close your connection to the HPCC by entering:
 
