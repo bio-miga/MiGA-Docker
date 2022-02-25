@@ -2,7 +2,7 @@
 
 This script is provided as a convenient way of obtaining the latest version of the TypeMat\_Lite database which contains more than 13,500 genomes from type material. By attaching it to a genome project, reference genomes submitted to the project are classified relative to the closest match in the database.
 
-The database is installed in the directory `~/.miga_db`. The resource request section is for a SLURM job scheduler.
+By default the database is installed in the directory `~/.miga_db`. It may be directed to a different directory with the -l flag. The resource request section is for a SLURM job scheduler.
 
 ```text
 #!/bin/bash --login
@@ -19,7 +19,7 @@ The database is installed in the directory `~/.miga_db`. The resource request se
 
 cd
 singularity shell ~/MiGA << EOF
-miga download
+miga get_db
 exit
 EOF
 ```
