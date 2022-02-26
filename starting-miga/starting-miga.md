@@ -29,7 +29,7 @@ To start a local installation of MiGA, start Docker Desktop and wait until it is
 
 ```text
 docker start miga-web
-docker exec -it miga /bin/bash
+docker exec -it miga-web /bin/bash
 cd /home/ubuntu/miga-data/
 ```
 Run all of your command line programs in the `miga-data` directory.  
@@ -38,7 +38,7 @@ When you are finished, enter:
 
 ```text
 exit
-docker stop miga
+docker stop miga-web
 ```
 
 ## Starting MiGA-Singularity
