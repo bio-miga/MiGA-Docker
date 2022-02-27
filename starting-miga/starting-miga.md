@@ -4,6 +4,7 @@
 
 The next time you want to use MiGA-Web, start Docker Desktop and wait until it is finished loading. Then open the terminal or **PowerShell** if you are using Windows and enter, one line at a time:
 
+
 ```text
 docker start miga-web
 docker exec -it miga-web /bin/bash
