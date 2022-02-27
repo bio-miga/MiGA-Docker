@@ -18,7 +18,7 @@ ssh  dev-intel18
 While in your home directory, create a singularity image of MiGA named MiGA using the command:
 
 ```text
-singularity build MiGA docker://miga/miga:1.2.2.3
+singularity build MiGA docker://miga/miga:1.2.3.0
 ```
 
 Once the image is successfully built, run the image shell to start MiGA by entering the command:
