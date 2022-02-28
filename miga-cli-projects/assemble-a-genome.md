@@ -21,12 +21,6 @@ Add your data set to the MiGA project. In doing this, turn off mytaxa scan and d
 
 ```text
 miga add -P . -t genome -i trimmed_reads_single  $HOME/miga-data/miga_genomes/a_capsulatum/A_capsulatum_reads.fasta -m run_mytaxa_scan=false,run_distances=false
-
-
-
-miga-data/miga_genomes/a_capsulatum/
-A_capsulatum_reads.fasta
-
 ```
 
 For the input flag \(-i\), supported inputs include:
