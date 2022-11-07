@@ -16,7 +16,7 @@ In the Inbound rules section, click on Add rule three times.
 For the first rule, enter SSH for the type, leave the Port range at 22 and change the source to Anywhere IPv4.  
 For the second rule, set the type to HTTP, the Port range to 80 and the Source to Anywhere IPv4.  
 For the third rule, leave the Type as Custom TCP, enter 8080 for the Port range and change the Source to Anywhere IPv4. 
-Scroll down and click on the Orange button Create Security group. This will save the information.
+Scroll down and click on the orange button "Create Security group." This will save the information.
 
 1. Launch your EC2 instance.  
 From near the left-hand end of the menu bar at the top of the screen, select "Services" and then "EC2" located under the "Compute" category. On the page that opens, click "Launch instance" and select "Launch instance" from the drop-down menu that opens.   
@@ -26,9 +26,8 @@ On the page that opens, look for "Application and OS Images (Amazon Machine Imag
 
 1. Choose the instance type.  
 In the next section of the page, choose an instance type. For running the tutorials, we suggest choosing an instance with at least 8 vCPUs and 32 Gb RAMM, *e.g.* t3.2xlarge for $0.3328 per hour. For "real work" with perhaps hundreds of genomes, you will need to choose an instance with more vCPUs, memory, and preferably higher network performance. vCPUs should be two times the number of MiGA jobs you wish to run at a time. We recommend 4 Gb of memory per vCPU.   
-If you know the instance type you want to use, based on prior experience or someone's recommendation, you may find it more easily by clicking on the "All instance families" button and then choosing an instance family. For example, choosing the m5n family you can more easily find m5n.16xlarge with 64 vCPUs, 256 GB of RAMM and 75 Gigabit Network Performance.  
+If you click on "Compare instance types," you can search for an instance meeting your requirements without having to scroll through the entire list. For example, choosing the m5n family you can more easily find m5n.16xlarge with 64 vCPUs, 256 GB of RAMM and 75 Gigabit Network Performance.  
 You may compare costs at [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/), but keep in mind that instances with greater resources will finish in less time.  
-After clicking on the instance type you want to use, click on "Next: Configure Instance Details" at the bottom of the screen.  
 
 1. Select a key.   
 Under the heading "Key pair (login)" enter the name of your key pair or select it from the pull-down menu.  
@@ -37,10 +36,10 @@ Under the heading "Key pair (login)" enter the name of your key pair or select i
 Choose the MiGA security group you created above from the pull-down menu.  
 
 1. Add EBS storage.   
-Click on "Next: Add storage" at the bottom of the page. On the page that opens, change the size of the root volume to 50 Gb. (This may seem unnecessarily large for the root volume, but is the minimum size required to perform installation of the TypeMat\_Lite database.) Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" enter the size of the volume you want to add, but we suggest at least 100 Gb. If you add the Phyla\_Lite and TypeMat\_Lite databases, they will take up at least 63 Gb on the storage disk, and you will need more room for your projects. We suggest that you leave the box "Delete on Termination" unchecked so that you may save the storage volume separately from the instance. That way the storage volume will not be automatically deleted if you terminate the instance. When you are sure you are finished with a storage volume, you can manually delete it.   
+In the "Configure storage" box, change the size of the root volume to 50 Gb. (This may seem unnecessarily large for the root volume, but is the minimum size required to perform installation of the TypeMat\_Lite database.) Then click on "Add New Volume." The volume type should be EBS. Under the heading "Size (GiB)" Enter the size of the volume you want to add in the form field. We suggest at least 100 Gb. If you add the Phyla\_Lite and TypeMat\_Lite databases, they will take up at least 63 Gb on the storage disk, and you will need more room for your projects.    
 
 1. Launch the instance.  
-Click on the orange "Launch instance" button near the bottom right of the screen.    
+Click on the orange "Launch instance" button in the "Summary" box on the right of the screen. The "Summary" box displays information about your instance.   
 
 1. Get the IP address.    
 Click on the name of the instance near the top of the page that opens. You will be taken to the Instances dashboard. Enter a meaningful name In the "Name" field so that you can recognize the instance later. Click on the instance and information about it will appear. Write down the public IPv4 address. You may also copy the address to your clipboard by clicking on the copy icon next to the address. You will need the address to log into the instance.  
@@ -84,11 +83,11 @@ nvme0n1     259:0    0   50G  0 disk
 └─nvme0n1p1 259:1    0   50G  0 part /
 nvme1n1     259:2    0  100G  0 disk
 ubuntu@ip-172-31-2-190:~$
-```
+```  
 You should be able to distinguish the root and storage disks based on their sizes (assuming you did give them different sizes!). Also, there will be a branch under the root disk. Note the entries under the column "NAME." In the example above, `nvme0n1` is the root volume and `nvme1n1` is the storage volume.  
 
 13. Format, mount, and setup the storage volume.  
-The code below formats and mounts the storage volume, and then copies some database files to it. If the name of your storage device is `nvme1n1` you may copy the code and paste it into your terminal all at once. Otherwise, substitute `nvme1n1` with the actual name as necessary.      
+The code below formats and mounts the storage volume, and then copies some database files to it. If the name of your storage device is `nvme1n1` you may copy the code and paste it into your terminal all at once. Otherwise, type the commands into the terminal, substituting `nvme1n1` with the actual name as necessary.      
 ```
 # Format the storage device.
 sudo mkfs -t xfs /dev/nvme1n1
@@ -162,7 +161,7 @@ http://<ip adddress>:8080
 The MiGA-Web Welcome page will open. Click on the "Create user" button and create your account by entering a user name, email address, and password. Log into your account by clicking on the "Log in" button and entering your email address and password.  
 
 16. Install the reference databases.  
-For full functionality, the reference databases need to be installed using the MiGA-Web interface. (You will not be able to do this if you are using the t2.micro instance and/or chose volume sizes smaller than 50 Gb.)   
-Go to the Admin console by clicking on the down arrow next to the green globe in the upper right corner and choosing "Admin console." Scroll down the page that opens and click on "Download databases."  Download Phyla\_Lite first; it will take only a few seconds. Then download TypeMat\_Lite. It will take approximately 20 minutes to download and install. Even if you close the browser at this point, the database installation should continue.  
+For full functionality, the reference databases need to be installed using the MiGA-Web interface. (You will not be able to do this if you are using the t2.micro instance and/or chose volume sizes smaller than 50 (root volume) and 75 (storage volume) Gb.)   
+Go to the Admin console by clicking on the down arrow next to the green globe in the upper right corner and choosing "Admin console." Scroll down the page that opens and click on "Download databases."  Download Phyla\_Lite first; it will take only a few seconds. Then download TypeMat\_Lite. It will take approximately 20 minutes to download and install. Even if you close the browser at this point, the database installation should continue. Installation takes some time after the download finishes.  
 
 Installation of MiGA-AWS is complete. See the next section for how to stop and restart the instance. (You do not want to pay for it when you are not using it!) Then run the tutorials that follow to gain experience using MiGA-AWS. For the command line version there are some important differences from the Docker version of MiGA.  
