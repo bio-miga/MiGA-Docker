@@ -1,7 +1,7 @@
 
 ## Stopping a MiGA AWS Instance
 
-In setting up the MiGA AWS instance, we configured it so that all data is written to a storage volume separate from the instance itself. We did this for two reasons: 1) so that the data can still be retrieved even if the MiGA instance is terminated, and 2) to allow the data volume to be attached to a different MiGA instance. For example, you will likely want to create a new MiGA instance after a newer MiGA AMI becomes available. Also, you might have different instance types: a cheaper one with fewer vCPUs and less memory for running tutorials and browsing results, and another with more resources for running large jobs.  
+In setting up the MiGA AWS instance, we configured it so that all data is written to a storage volume separate from the root volume. We did this for two reasons: 1) so that the data can still be retrieved even if the MiGA instance is terminated, and 2) to allow the data volume to be attached to a different MiGA instance. For example, you will likely want to create a new MiGA instance after a newer MiGA AMI becomes available. Also, you might have different instance types: a cheaper one with fewer vCPUs and less memory for running tutorials and browsing results, and another with more resources for running large jobs.  
 
 There are two ways of stopping an instance, depending on whether or not you want to detach the storage volume.  
 
